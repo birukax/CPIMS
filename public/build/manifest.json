@@ -1,0 +1,132 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-c36be055.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/fonts/Satoshi-Black.ttf": {
+    "file": "assets/Satoshi-Black-78edaca6.ttf",
+    "src": "resources/fonts/Satoshi-Black.ttf"
+  },
+  "resources/fonts/Satoshi-Black.woff": {
+    "file": "assets/Satoshi-Black-a849a7b7.woff",
+    "src": "resources/fonts/Satoshi-Black.woff"
+  },
+  "resources/fonts/Satoshi-Black.woff2": {
+    "file": "assets/Satoshi-Black-bd11b582.woff2",
+    "src": "resources/fonts/Satoshi-Black.woff2"
+  },
+  "resources/fonts/Satoshi-BlackItalic.ttf": {
+    "file": "assets/Satoshi-BlackItalic-d3d6c8d6.ttf",
+    "src": "resources/fonts/Satoshi-BlackItalic.ttf"
+  },
+  "resources/fonts/Satoshi-BlackItalic.woff": {
+    "file": "assets/Satoshi-BlackItalic-cf5edac8.woff",
+    "src": "resources/fonts/Satoshi-BlackItalic.woff"
+  },
+  "resources/fonts/Satoshi-BlackItalic.woff2": {
+    "file": "assets/Satoshi-BlackItalic-83d61d67.woff2",
+    "src": "resources/fonts/Satoshi-BlackItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Bold.ttf": {
+    "file": "assets/Satoshi-Bold-2c122eab.ttf",
+    "src": "resources/fonts/Satoshi-Bold.ttf"
+  },
+  "resources/fonts/Satoshi-Bold.woff": {
+    "file": "assets/Satoshi-Bold-1789917c.woff",
+    "src": "resources/fonts/Satoshi-Bold.woff"
+  },
+  "resources/fonts/Satoshi-Bold.woff2": {
+    "file": "assets/Satoshi-Bold-353a7fbf.woff2",
+    "src": "resources/fonts/Satoshi-Bold.woff2"
+  },
+  "resources/fonts/Satoshi-BoldItalic.ttf": {
+    "file": "assets/Satoshi-BoldItalic-8ff85a17.ttf",
+    "src": "resources/fonts/Satoshi-BoldItalic.ttf"
+  },
+  "resources/fonts/Satoshi-BoldItalic.woff": {
+    "file": "assets/Satoshi-BoldItalic-5d73878e.woff",
+    "src": "resources/fonts/Satoshi-BoldItalic.woff"
+  },
+  "resources/fonts/Satoshi-BoldItalic.woff2": {
+    "file": "assets/Satoshi-BoldItalic-52bfd9e8.woff2",
+    "src": "resources/fonts/Satoshi-BoldItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Italic.ttf": {
+    "file": "assets/Satoshi-Italic-14c3d259.ttf",
+    "src": "resources/fonts/Satoshi-Italic.ttf"
+  },
+  "resources/fonts/Satoshi-Italic.woff": {
+    "file": "assets/Satoshi-Italic-a6df1710.woff",
+    "src": "resources/fonts/Satoshi-Italic.woff"
+  },
+  "resources/fonts/Satoshi-Italic.woff2": {
+    "file": "assets/Satoshi-Italic-dbcb8c32.woff2",
+    "src": "resources/fonts/Satoshi-Italic.woff2"
+  },
+  "resources/fonts/Satoshi-Light.ttf": {
+    "file": "assets/Satoshi-Light-b54cf060.ttf",
+    "src": "resources/fonts/Satoshi-Light.ttf"
+  },
+  "resources/fonts/Satoshi-Light.woff": {
+    "file": "assets/Satoshi-Light-dd42e743.woff",
+    "src": "resources/fonts/Satoshi-Light.woff"
+  },
+  "resources/fonts/Satoshi-Light.woff2": {
+    "file": "assets/Satoshi-Light-8a24f395.woff2",
+    "src": "resources/fonts/Satoshi-Light.woff2"
+  },
+  "resources/fonts/Satoshi-LightItalic.ttf": {
+    "file": "assets/Satoshi-LightItalic-c9a8d027.ttf",
+    "src": "resources/fonts/Satoshi-LightItalic.ttf"
+  },
+  "resources/fonts/Satoshi-LightItalic.woff": {
+    "file": "assets/Satoshi-LightItalic-2f9c5264.woff",
+    "src": "resources/fonts/Satoshi-LightItalic.woff"
+  },
+  "resources/fonts/Satoshi-LightItalic.woff2": {
+    "file": "assets/Satoshi-LightItalic-9690a557.woff2",
+    "src": "resources/fonts/Satoshi-LightItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Medium.ttf": {
+    "file": "assets/Satoshi-Medium-7130cef6.ttf",
+    "src": "resources/fonts/Satoshi-Medium.ttf"
+  },
+  "resources/fonts/Satoshi-Medium.woff": {
+    "file": "assets/Satoshi-Medium-7aeaf037.woff",
+    "src": "resources/fonts/Satoshi-Medium.woff"
+  },
+  "resources/fonts/Satoshi-Medium.woff2": {
+    "file": "assets/Satoshi-Medium-af02a722.woff2",
+    "src": "resources/fonts/Satoshi-Medium.woff2"
+  },
+  "resources/fonts/Satoshi-MediumItalic.ttf": {
+    "file": "assets/Satoshi-MediumItalic-71f8dce5.ttf",
+    "src": "resources/fonts/Satoshi-MediumItalic.ttf"
+  },
+  "resources/fonts/Satoshi-MediumItalic.woff": {
+    "file": "assets/Satoshi-MediumItalic-cf98a3ed.woff",
+    "src": "resources/fonts/Satoshi-MediumItalic.woff"
+  },
+  "resources/fonts/Satoshi-MediumItalic.woff2": {
+    "file": "assets/Satoshi-MediumItalic-beb15382.woff2",
+    "src": "resources/fonts/Satoshi-MediumItalic.woff2"
+  },
+  "resources/fonts/Satoshi-Regular.ttf": {
+    "file": "assets/Satoshi-Regular-243b23f6.ttf",
+    "src": "resources/fonts/Satoshi-Regular.ttf"
+  },
+  "resources/fonts/Satoshi-Regular.woff": {
+    "file": "assets/Satoshi-Regular-9fbc41c9.woff",
+    "src": "resources/fonts/Satoshi-Regular.woff"
+  },
+  "resources/fonts/Satoshi-Regular.woff2": {
+    "file": "assets/Satoshi-Regular-50dca57f.woff2",
+    "src": "resources/fonts/Satoshi-Regular.woff2"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-4791dd55.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

@@ -1,3 +1,5 @@
 {
-    "vue.features.codeActions.enable": false
+    "vue.features.codeActions.enable": false,
+    "css.validate": false,
+    "prettier.printWidth": 80
 }
