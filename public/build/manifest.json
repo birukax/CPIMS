@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-c36be055.css",
+    "file": "assets/app-701d6ddf.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -124,8 +124,15 @@
     "file": "assets/Satoshi-Regular-50dca57f.woff2",
     "src": "resources/fonts/Satoshi-Regular.woff2"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-184551fb.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-4791dd55.js",
+    "css": [
+      "assets/app-184551fb.css"
+    ],
+    "file": "assets/app-724eef64.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

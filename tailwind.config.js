@@ -4,6 +4,8 @@ module.exports = {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
+        "./resources/**/*.vue",
+        "./node_modules/tw-elements/dist/js/**/*.js",
       ],
   darkMode: 'class',
   theme: {
@@ -296,5 +298,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
+    require("tw-elements/dist/plugin.cjs"),
   ],
 }
