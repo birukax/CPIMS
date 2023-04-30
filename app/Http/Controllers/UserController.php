@@ -10,9 +10,10 @@ class UserController extends Controller
 {
     public function attendance(Request $request)
     {
-        return view('home',[
+        return view('attendance',[
 
             'users' => User::all()->where('role', 'police'),
+            'count' => 0
         ]
     );
 

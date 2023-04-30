@@ -15,6 +15,8 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->date('date');
+            $table->time('entered')->nullable();
+            $table->time('left')->nullable();
             $table->foreignIdFor(User::class, 'staff_id');
             $table->boolean('status')->default(0);
         //    $table->timestamps();

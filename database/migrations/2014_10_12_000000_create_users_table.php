@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique()->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'dc', 'co', 'sl', 'police'])->default('police');
+            $table->enum('role', ['admin', 'discipline_comittee', 'chief_officer', 'shift_leader', 'police'])->default('police');
             $table->datetime('birth_date')->nullable();
-            $table->enum('gender', ['male', 'female'])->default('male');
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('phone')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamp('email_verified_at')->nullable();

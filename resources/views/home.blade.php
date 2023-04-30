@@ -1,5 +1,5 @@
 <x-layout>
 
-    @include('co.attendance')
+    @yield('body')
 
 </x-layout>

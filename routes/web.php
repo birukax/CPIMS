@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'attendance']);
 
-Route::get('/template', function () {
-    return view('template.index');
+Route::get('/crimes', function (){
+    return view('crimes');
 });
 
-Route::get('/calender', function () {
-    return view('');
+Route::get('/tasks', function (){
+    return view('tasks');
+});
+
+Route::get('/leave_request', function (){
+    return view('leave_request');
 });
