@@ -57,14 +57,14 @@ class User extends Authenticatable
 
     public function attendances(): HasMany
     {
-        return $this->hasMany(Attendance::class);
+        return $this->hasMany(Attendance::class, 'staff_id');
     }
 
     public function crimes(): HasMany
     {
         return $this->hasMany(Crime::class);
-
-    }public function pcs(): HasMany
+    }
+    public function pcs(): HasMany
     {
         return $this->hasMany(Pc::class);
     }
@@ -73,5 +73,4 @@ class User extends Authenticatable
     {
         return $this->BelongsToMany(Task::class);
     }
-
 }

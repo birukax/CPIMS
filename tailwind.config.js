@@ -11,14 +11,19 @@ module.exports = {
   theme: {
     fontFamily: {
       satoshi: ['Satoshi', 'sans-serif'],
+      foldit: ['foldit', 'cursive'],
     },
     colors: {
       current: 'currentColor',
       transparent: 'transparent',
       white: '#FFFFFF',
-      black: '#1C2434',
+      lightWhite: '#DBD3D8',
+      black: '#A167A5',
       'black-2': '#010101',
-      body: '#64748B',
+      body: '#0a0908',
+      dark: '#5E0035',
+      oxfordBlue: '#161032',
+      platinum: '#E8E9ED',
       bodydark: '#AEB7C0',
       bodydark1: '#DEE4EE',
       bodydark2: '#8A99AF',
