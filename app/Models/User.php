@@ -2,18 +2,21 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -24,11 +27,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
-        'birth_date',
-        'gender',
-        'phone',
-        'status'
     ];
 
     /**
@@ -39,6 +37,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -50,27 +50,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function todo_lists(): HasMany
-    {
-        return $this->hasMany(Todo_list::class);
-    }
-
-    public function attendances(): HasMany
-    {
-        return $this->hasMany(Attendance::class, 'staff_id');
-    }
-
-    public function crimes(): HasMany
-    {
-        return $this->hasMany(Crime::class);
-    }
-    public function pcs(): HasMany
-    {
-        return $this->hasMany(Pc::class);
-    }
-
-    public function tasks(): BelongsToMany
-    {
-        return $this->BelongsToMany(Task::class);
-    }
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
 }

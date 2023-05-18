@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
             $table->string('zone');
+            $table->string('slug');
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

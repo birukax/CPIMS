@@ -3,18 +3,18 @@
         <div class="flex flex-col justify-around ">
             <ul class="py-10 space-y-2 font-bold tracking-wide text-white divide-y rounded-3xl bg-dark hover:bg-dark">
                 <li class="min-w-max">
-                    <a href="/" aria-label="home"
+                    <a href="/attendance" aria-label="attendance"
                         class="relative flex items-center px-1 py-3 space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 ">
                         <svg class="w-12 h-12 " viewBox="0 0 24 24" fill="none">
                             <path
                                 d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
-                                class="fill-current text-cyan-400 dark:fill-slate-600"></path>
+                                class="fill-current text-cyan-400"></path>
                             <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
                                 class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
                             <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
                                 class="fill-current group-hover:text-sky-300"></path>
                         </svg>
-                        <span class="">Home</span>
+                        <span class="">Attendance</span>
                     </a>
                 </li>
                 <li class="min-w-max">

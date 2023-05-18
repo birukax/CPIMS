@@ -14,15 +14,12 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique()->nullable();
-            $table->string('password');
-            $table->enum('role', ['admin', 'discipline_comittee', 'chief_officer', 'shift_leader', 'police'])->default('police');
-            $table->datetime('birth_date')->nullable();
-            $table->enum('gender', ['male', 'female'])->nullable();
-            $table->string('phone')->nullable();
-            $table->boolean('status')->default(1);
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }

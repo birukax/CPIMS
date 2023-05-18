@@ -48,8 +48,8 @@
 
                 <!-- ===== Main Content Start ===== -->
                 <main
-                    class="w-full overflow-y-auto rounded-sm border border-stroke shadow-default dark:border-strokedark
-                    dark:bg-boxdark">
+                    class="w-full overflow-y-auto rounded-sm border border-stroke shadow-default
+                   ">
                     {{ $slot }}
                 </main>
                 <!-- ===== Main Content End ===== -->

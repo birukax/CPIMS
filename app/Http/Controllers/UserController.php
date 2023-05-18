@@ -7,20 +7,17 @@ use App\Models\User;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
 
 
-
-    public function attendance(Request $request)
+    public function dashboard(Request $request)
     {
         return view(
-            'attendance',
+            'sl.dashboard',
             [
-
-                'users' => User::all()->where('role', 'police'),
+                'users' => User::all()->where('role_id', 1),
 
                 'count' => 0
             ]
@@ -29,6 +26,7 @@ class UserController extends Controller
 
     public function staff_entered(User $staff)
     {
+        dd($staff);
         $staff_exists = Attendance::all()->where('staff_id', $staff->id)
             ->where('date', '=', Carbon::now()->toDateString());
         try {
@@ -45,7 +43,7 @@ class UserController extends Controller
                     'created_at' => carbon::now()
                 ];
                 Attendance::insert($staff_arrived);
-                return redirect('/')->with('success', 'arrived');
+                return redirect('/dashboard')->with('success', 'arrived');
             }
         } catch (Exception $e) {
             dd($e);
