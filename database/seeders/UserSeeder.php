@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'name' => 'Biruk Alemayehu',
             'email' => 'ba@email.com',
-            'role_id' => 3,
             'phone' => '0911223344',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -26,7 +25,6 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'name' => 'Jack Grealish',
             'email' => 'jg@email.com',
-            'role_id' => 2,
             'phone' => '0911112222',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
