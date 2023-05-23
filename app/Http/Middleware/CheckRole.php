@@ -13,18 +13,20 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, string $role)
     {
-
         $roles = [
-            'police' => [1],
-            'shift_leader' => [2],
-            'chief_officer' => [3],
+            'police' => [1, 4],
+            'sl' => [2, 4],
+            'co' => [3, 4],
             'admin' => [4],
-            'discipline_commmittee' => [5]
+            'dc' => [4, 5]
         ];
+        $roleIds = $roles[$role] ?? [];
+        if (!in_array(auth()->user()->role_id, $roleIds)) {
 
-        if (!in_array(auth()->user()->role_id, $roles))
-            return $next($request);
+            abort(code: 403);
+        }
+        return $next($request);
     }
 }

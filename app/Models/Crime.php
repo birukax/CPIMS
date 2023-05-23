@@ -10,7 +10,7 @@ class Crime extends Model
 {
     use HasFactory;
 
-    protected $filable = [
+    protected $fillable = [
         'crime',
         'description',
         'offender_name',
@@ -24,8 +24,8 @@ class Crime extends Model
         'co_decision',
         'dc_decision',
         'reported_by',
-        'reviewed_by_co',
-        'reviewed_by_dc'
+        'co_review',
+        'dc_review'
     ];
 
     public function user(): BelongsTo

@@ -28,32 +28,25 @@
     <x-preloader />
     <!-- ===== Preloader End ===== -->
 
-
-
     <!-- ===== Page Wrapper Start ===== -->
     <div class="flex h-screen overflow-y-hidden">
-
-
         <!-- ===== Content Area Start ===== -->
-        <div class="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto bg-white">
+        <div class="flex overflow-hidden bg-white ">
 
             <!-- ===== Header Start ===== -->
             <x-header />
             <!-- ===== Header End ===== -->
-            <div class="flex overflow-hidden">
 
+            <div class="flex w-screen mt-20">
                 <!-- ===== Sidebar Start ===== -->
-                <x-sidebar />
+                <x-navbar />
                 <!-- ===== Sidebar End ===== -->
 
                 <!-- ===== Main Content Start ===== -->
-                <main
-                    class="w-full overflow-y-auto rounded-sm border border-stroke shadow-default
-                   ">
-                    {{ $slot }}
+                <main class="relative w-full overflow-y-auto ">
+                        {{ $slot }}
                 </main>
                 <!-- ===== Main Content End ===== -->
-
             </div>
         </div>
         <!-- ===== Content Area End ===== -->

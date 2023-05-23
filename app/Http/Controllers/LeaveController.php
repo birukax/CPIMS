@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-use App\Models\Zone;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class LeaveController extends Controller
 {
     public function index(Request $request)
     {
         return view(
-            'tasks.tasks',
+            'leaves.leaves',
             [
-                'tasks' => Task::all(),
-                'zones' => Zone::all(),
+                //   'leaves' => Leave::all(),
+
             ]
         );
     }

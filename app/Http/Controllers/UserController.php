@@ -2,74 +2,71 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attendance;
-use App\Models\User;
-use Carbon\Carbon;
 use Exception;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Crime;
+use App\Models\Attendance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
 
 
-    public function dashboard(Request $request)
+    public function index(Request $request)
     {
-        return view(
-            'sl.dashboard',
-            [
-                'users' => User::all()->where('role_id', 1),
+        $userRole = auth()->user()->role_id;
 
-                'count' => 0
-            ]
-        );
-    }
+        if ($userRole === 1) {
+            return view('police.dashboard');
+        } elseif ($userRole === 2) {
+            return view(
+                'sl.dashboard',
+                [
+                    'users' => User::all()->where('role_id', 1),
 
-    public function staff_entered(User $staff)
-    {
-        dd($staff);
-        $staff_exists = Attendance::all()->where('staff_id', $staff->id)
-            ->where('date', '=', Carbon::now()->toDateString());
-        try {
-            if (
-                count($staff_exists) !== 0
-            ) {
-
-                return redirect('/not_null');
-            } else {
-                $staff_arrived = [
-                    'staff_id' => $staff->id,
-                    'date' => Carbon::now()->toDateString(),
-                    'entered' => Carbon::now()->toTimeString(),
-                    'created_at' => carbon::now()
-                ];
-                Attendance::insert($staff_arrived);
-                return redirect('/dashboard')->with('success', 'arrived');
-            }
-        } catch (Exception $e) {
-            dd($e);
+                    'count' => 0
+                ]
+            );
+        } elseif ($userRole === 3) {
+            return view('co.dashboard');
+        } elseif ($userRole === 4) {
+            return view('admin.dashboard');
+        } elseif ($userRole === 5) {
+            return view('dc.dashboard');
         }
     }
 
-    public function staff_left(User $staff)
+    public function create(Request $request)
     {
-        $staff_exists = Attendance::all()->where('staff_id', $staff->id)
-            ->where('date', '=', Carbon::now()->toDateString())
-            ->where('left', '!=', NULL);
+        return view('admin.create_user');
+    }
+    public function store(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed', Password::defaults()],
+            'phone' => ['required'],
+            'role_id' => ['required'],
+        ]);
 
-        try {
-            if (
-                count($staff_exists) !== 0
-            ) {
+        User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'role_id' => $request->role_id,
+            'password' => Hash::make($request->password),
+        ]);
 
-                return redirect('/not_null');
-            } else {
-                Attendance::query()->where('staff_id', $staff->id)
-                    ->where('date', '=', Carbon::now()->toDateString())
-                    ->update(['left' => Carbon::now()->toTimeString()]);
-                return redirect('/')->with('success', 'arrived');
-            }
-        } catch (Exception $e) {
-            dd($e);
-        }
+        //   event(new Registered($user));
+
+        //  Auth::login($user);
+
+        // return redirect(RouteServiceProvider::HOME);
+        return redirect()->back()->with('message', 'User created successfully!');
     }
 }

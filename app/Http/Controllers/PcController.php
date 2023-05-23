@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-use App\Models\Zone;
+use App\Http\Controllers\Controller;
+use App\Models\Pc;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class PcController extends Controller
 {
     public function index(Request $request)
     {
         return view(
-            'tasks.tasks',
+            'pcs.pcs',
             [
-                'tasks' => Task::all(),
-                'zones' => Zone::all(),
+                'pcs' => Pc::all(),
             ]
         );
     }

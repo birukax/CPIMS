@@ -27,8 +27,8 @@ return new class extends Migration
             $table->longText('co_decision')->nullable();
             $table->longText('dc_decision')->nullable();
             $table->foreignIdFor(User::class, 'reported_by');
-            $table->foreignIdFor(User::class, 'reviewed_by_co')->nullable();
-            $table->foreignIdFor(User::class, 'reviewed_by_dc')->nullable();
+            $table->foreignIdFor(User::class, 'co_review')->nullable();
+            $table->foreignIdFor(User::class, 'dc_review')->nullable();
 
 
             $table->timestamps();
