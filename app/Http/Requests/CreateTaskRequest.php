@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateTaskRequest extends FormRequest
@@ -21,10 +22,17 @@ class CreateTaskRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             'task_name' => 'required',
             'task_description' => 'required',
-            'zone_id' => 'required'
+            'zone_id' => 'required',
+            'date' => 'required',
+            'starting_time' => 'required',
+            'ending_time' => 'required',
+
         ];
     }
+
+
 }
