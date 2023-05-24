@@ -21,7 +21,7 @@ export default {
             oxfordBlue: "#5390d9",
             transparent: "transparent",
             white: "#FFFFFF",
-            black: "#1C2434",
+            black: "#01161E",
             "black-2": "#010101",
             body: "#64748B",
             bodydark: "#AEB7C0",

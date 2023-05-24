@@ -25,6 +25,6 @@ class Task extends Model
 
     public function zones(): BelongsToMany
     {
-        return $this->BelongsToMany(Zone::class, Task_zone::class);
+        return $this->BelongsToMany(Zone::class);
     }
 }

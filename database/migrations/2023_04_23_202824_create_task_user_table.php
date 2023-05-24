@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('task_zone', function (Blueprint $table) {
+        Schema::create('task_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
-            $table->foreignId('zone_id')->references('id')->on('zones')->onDelete('cascade');
+            $table->foreignId('task_id')->references('id')->constrained()->on('tasks')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->constrained()->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('task_zones');
+        Schema::dropIfExists('task_users');
     }
 };

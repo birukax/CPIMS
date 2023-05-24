@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('task_name');
             $table->longText('task_description')->nullable();
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->time('starting_time')->nullable();
             $table->time('ending_time')->nullable();
             $table->timestamps();
