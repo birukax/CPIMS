@@ -1,18 +1,18 @@
 <header class="fixed flex w-full h-20 bg-white shadow">
     <div class="flex items-center justify-between flex-grow mx-2 items-right md:px-6 2xl:px-11">
 
-        <div class="relative">
+        <div class="relative mx-auto">
             <a href="/" class="">
-                <img class="w-20 h-20 " src="{{ asset('storage/images/logo/logo.svg') }}" />
+                <x-application-logo />
             </a>
         </div>
 
 
-        <div class="flex gap-3 items-right 2xsm:gap-7">
+        <div class="relative flex gap-2 items-right 2xsm:gap-7">
             <form action="/logout" method="post">
                 @csrf
                 <button type="submit"
-                    class="inline-flex items-center justify-center gap-1 px-3 py-1 text-center text-white rounded-full bg-dark font-sm xl:font-sm hover:bg-opacity-90 lg:px-2 xl:px-5">
+                    class="inline-flex items-center justify-center gap-1 px-2 py-0.5 text-center text-white rounded-full bg-dark font-xs xl:font-sm hover:bg-opacity-90 lg:px-2 xl:px-3">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-4 h-4">

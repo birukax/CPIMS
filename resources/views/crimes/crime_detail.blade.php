@@ -1,97 +1,164 @@
 <x-layout>
-<!-- component -->
-<!-- This is an example component -->
-<div class="min-h-screen flex items-center justify-center px-4 ">
+    <!-- component -->
+    <!-- This is an example component -->
+    <div class="min-h-screen flex items-center justify-center px-4 ">
 
-    <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl text-black">
-        <div class="p-4 border-b">
-            <h2 class="text-2xl ">
-                Crime Information
-            </h2>
-            <p class="text-sm text-gray-500 ml-5">
-                Reportred By: <span>{{ $crime->user->name }}</span>
-            </p>
-        </div>
-        <div>
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                <p class="text-gray-600">
-                    Crime
-                </p>
-                <p>
-                    {{ $crime->crime }}
+        <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl text-black">
+            <div class="p-4 border-b">
+                <h2 class="text-2xl ">
+                    Crime Information
+                </h2>
+                <p class="text-sm text-gray-500 ml-5">
+                    Reportred By: <span>{{ $crime->user->name }}</span>
                 </p>
             </div>
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                <p class="text-gray-600">
-                    Offender's Name
-                </p>
-                <p>
-                    {{ $crime->offender_name }}
-                </p>
-            </div>
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                <p class="text-gray-600">
-                    Offender's Phone No.
-                </p>
-                <p>
-                    {{ $crime->offender_phone_number }}
-                </p>
-            </div>
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                <p class="text-gray-600">
-                    Offender's ID
-                </p>
-                <p>
-                    {{ $crime->offender_id }}
-                </p>
-            </div>
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                <p class="text-gray-600">
-                    About
-                </p>
-                <p>
-                    Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-                </p>
-            </div>
-            <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4">
-                <p class="text-gray-600">
-                    Attachments
-                </p>
-                <div class="space-y-2">
-                    <div class="border-2 flex items-center p-2 rounded justify-between space-x-2">
-                        <div class="space-x-2 truncate">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current inline text-gray-500" width="24" height="24" viewBox="0 0 24 24"><path d="M17 5v12c0 2.757-2.243 5-5 5s-5-2.243-5-5v-12c0-1.654 1.346-3 3-3s3 1.346 3 3v9c0 .551-.449 1-1 1s-1-.449-1-1v-8h-2v8c0 1.657 1.343 3 3 3s3-1.343 3-3v-9c0-2.761-2.239-5-5-5s-5 2.239-5 5v12c0 3.866 3.134 7 7 7s7-3.134 7-7v-12h-2z"/></svg>
-                            <span>
-                                resume_for_manager.pdf
-                            </span>
-                        </div>
-                        <a href="#" class="text-purple-700 hover:underline">
-                            Download
-                        </a>
-                    </div>
-
-                    <div class="border-2 flex items-center p-2 rounded justify-between space-x-2">
-                        <div class="space-x-2 truncate">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current inline text-gray-500" width="24" height="24" viewBox="0 0 24 24"><path d="M17 5v12c0 2.757-2.243 5-5 5s-5-2.243-5-5v-12c0-1.654 1.346-3 3-3s3 1.346 3 3v9c0 .551-.449 1-1 1s-1-.449-1-1v-8h-2v8c0 1.657 1.343 3 3 3s3-1.343 3-3v-9c0-2.761-2.239-5-5-5s-5 2.239-5 5v12c0 3.866 3.134 7 7 7s7-3.134 7-7v-12h-2z"/></svg>
-                            <span>
-                                resume_for_manager.pdf
-                            </span>
-                        </div>
-                        <a href="#" class="text-purple-700 hover:underline">
-                            Download
-                        </a>
-                    </div>
+            <div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Crime
+                    </p>
+                    <p>
+                        {{ $crime->crime }}
+                    </p>
                 </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Crime Description
+                    </p>
+                    <p>
+                        {{ $crime->description }}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Offender's Name
+                    </p>
+                    <p>
+                        {{ $crime->offender_name }}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Offender's Phone No.
+                    </p>
+                    <p>
+                        {{ $crime->offender_phone_number }}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Offender's ID
+                    </p>
+                    <p>
+                        {{ $crime->offender_id }}
+                    </p>
+                </div>
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Offender's Statement
+                    </p>
+                    <p>
+                        {{ $crime->offender_statement }}
+                    </p>
+                </div>
+                @if ($crime->victim_name !== null)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                        <p class="text-gray-600">
+                            Victim's Name
+                        </p>
+                        <p>
+                            {{ $crime->victim_name }}
+                        </p>
+                    </div>
+                @endif
+                @if ($crime->victim_id !== null)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                        <p class="text-gray-600">
+                            Victim's ID
+                        </p>
+                        <p>
+                            {{ $crime->victim_id }}
+                        </p>
+                    </div>
+                @endif
+                @if ($crime->victim_phone_number !== null)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                        <p class="text-gray-600">
+                            Victim's Phone No.
+                        </p>
+                        <p>
+                            {{ $crime->victim_phone_number }}
+                        </p>
+                    </div>
+                @endif
+                @if ($crime->victim_statement !== null)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                        <p class="text-gray-600">
+                            Victim's Statement
+                        </p>
+                        <p>
+                            {{ $crime->victim_statement }}
+                        </p>
+                    </div>
+                @endif
+
+                @if ($crime->co_decision !== null)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                        <p class="text-gray-600">
+                            Chief Officer's Decision:
+                        </p>
+                        <p>
+                            {{ $crime->co_decision }}
+                        </p>
+                    </div>
+                @endif
+                @if ($crime->dc_decision !== null)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                        <p class="text-gray-600">
+                            Discipline Committee's Decision:
+                        </p>
+                        <p>
+                            {{ $crime->dc_decision }}
+                        </p>
+                    </div>
+                @endif
+
+                @if ($crime->status->name !== null)
+                <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                    <p class="text-gray-600">
+                        Status:
+                    </p>
+                    <p class=" font-bold text-2xl uppercase">
+                        {{ $crime->status->name }}
+                    </p>
+                </div>
+            @endif
+                @if ($crime->status->id === 1)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4">
+                        <p class="text-gray-600">
+                            Chief Officer's Review
+                        </p>
+                        @include('crimes.crime_review')
+                    </div>
+                @endif
+                @if ($crime->status->id === 2)
+                    <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4">
+                        <p class="text-gray-600">
+                            Discipline Committee's Review
+                        </p>
+                        @include('crimes.crime_review')
+                    </div>
+                @endif
             </div>
         </div>
+
+
+
+
+        <!-- support me by buying a coffee -->
+        <a href="https://www.buymeacoffee.com/danimai" target="_blank"
+            class="bg-purple-600 p-2 rounded-lg text-white fixed right-0 bottom-0">
+            Support me
+        </a>
     </div>
-
-
-
-
-    <!-- support me by buying a coffee -->
-    <a href="https://www.buymeacoffee.com/danimai" target="_blank" class="bg-purple-600 p-2 rounded-lg text-white fixed right-0 bottom-0">
-        Support me
-    </a>
-</div>
 </x-layout>

@@ -67,6 +67,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::group(['prefix' => 'crimes'], function () {
             Route::get('/', [CrimeController::class, 'index'])->name('crimes');
+            Route::put('/crime_detail/co_decision/{id}', [CrimeController::class, 'decision']);
+            Route::put('/crime_detail/dc_decision/{id}', [CrimeController::class, 'decision']);
             Route::get('/crime_detail/{id}', [CrimeController::class, 'show']);
             Route::post('/crime_reported', [CrimeController::class, 'store']);
         });

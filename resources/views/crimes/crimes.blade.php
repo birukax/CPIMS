@@ -20,10 +20,7 @@
 
         </div>
 @else
-
         @endif
-
-
 
         @include('crimes.crimes_table')
 
