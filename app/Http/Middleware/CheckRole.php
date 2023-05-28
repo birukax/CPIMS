@@ -20,7 +20,8 @@ class CheckRole
             'sl' => [2, 4],
             'co' => [3, 4],
             'admin' => [4],
-            'dc' => [4, 5]
+            'dc' => [4, 5],
+            'crime_manager' => [2, 3, 4, 5],
         ];
         $roleIds = $roles[$role] ?? [];
         if (!in_array(auth()->user()->role_id, $roleIds)) {

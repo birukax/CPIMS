@@ -22,7 +22,7 @@
         rel="stylesheet">
 </head>
 
-<body class="font-serif">
+<body class="font-mono">
 
     <!-- ===== Preloader Start ===== -->
     <x-preloader />

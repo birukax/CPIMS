@@ -13,6 +13,7 @@ class Crime extends Model
     protected $fillable = [
         'crime',
         'description',
+        'status_id',
         'offender_name',
         'offender_id',
         'offender_phone_number',
@@ -24,12 +25,15 @@ class Crime extends Model
         'co_decision',
         'dc_decision',
         'reported_by',
-        'co_review',
-        'dc_review'
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'reported_by');
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(Status::class);
     }
 }

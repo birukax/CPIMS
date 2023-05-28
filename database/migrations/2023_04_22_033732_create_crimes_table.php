@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('crime');
             $table->longText('description');
+            $table->foreignId('status_id')->cascadeOnDelete()->default(1);
             $table->string('offender_name');
             $table->string('offender_id');
             $table->string('offender_phone_number');
@@ -27,8 +28,6 @@ return new class extends Migration
             $table->longText('co_decision')->nullable();
             $table->longText('dc_decision')->nullable();
             $table->foreignIdFor(User::class, 'reported_by');
-            $table->foreignIdFor(User::class, 'co_review')->nullable();
-            $table->foreignIdFor(User::class, 'dc_review')->nullable();
 
 
             $table->timestamps();

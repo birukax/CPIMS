@@ -15,12 +15,12 @@ class Task extends Model
         'task_description',
         'date',
         'starting_time',
-        'ending_time'
+        'ending_time',
     ];
 
     public function users(): BelongsToMany
     {
-        return $this->BelongsToMany(User::class, Task_user::class);
+        return $this->BelongsToMany(User::class);
     }
 
     public function zones(): BelongsToMany

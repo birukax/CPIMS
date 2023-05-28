@@ -34,10 +34,24 @@ class UserController extends Controller
         } elseif ($userRole === 3) {
             return view('co.dashboard');
         } elseif ($userRole === 4) {
-            return view('admin.dashboard');
+            return view(
+                'admin.dashboard',
+                [
+                    'users' => User::all(),
+
+                    'count' => 0
+                ]
+            );
         } elseif ($userRole === 5) {
             return view('dc.dashboard');
         }
+    }
+
+    public function edit(string $id)
+    {
+        return view('admin.edit_user', [
+            'user' => User::find($id)
+        ]);
     }
 
     public function create(Request $request)
@@ -52,9 +66,10 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', Password::defaults()],
             'phone' => ['required'],
             'role_id' => ['required'],
+
         ]);
 
-        User::insert([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -62,11 +77,21 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        //   event(new Registered($user));
 
-        //  Auth::login($user);
-
-        // return redirect(RouteServiceProvider::HOME);
         return redirect()->back()->with('message', 'User created successfully!');
+    }
+
+    public function update(Request $request): RedirectResponse
+    {
+        $userEdit = User::find($request->id);
+        $formFields = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'phone' => ['required'],
+            'role_id' => ['required'],
+        ]);
+
+        $userEdit->update($formFields);
+        return redirect('/')->with('message', 'User edited successfully!');
     }
 }

@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone')->nullable();
-            $table->foreignId('role_id');
+            $table->foreignId('role_id')->default(1);
+            $table->boolean('status')->default(1);
+            $table->integer('available_leave')->default(60);
             $table->rememberToken();
+            $table->timestamp('email_verified_at')->nullable();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();

@@ -15,7 +15,7 @@ class CrimeController extends Controller
         return view(
             'crimes.crimes',
             [
-                'crimes' => Crime::all()
+                'crimes' => Crime::all(),
             ]
         );
     }
@@ -36,7 +36,7 @@ class CrimeController extends Controller
         }
     }
 
-    public function crime_detail(string $id)
+    public function show(string $id)
     {
         return view('crimes.crime_detail', [
             'crime' => Crime::find($id)

@@ -2,7 +2,7 @@
 
 <div class="items-center w-full">
 
-
+<x-message />
     <div class="w-1/2 mx-auto ">
 
         <h1 class="text-4xl font-extrabold text-center text-dark my-7">Register User</h1>

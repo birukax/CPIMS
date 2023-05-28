@@ -27,7 +27,6 @@ class CreateTaskRequest extends FormRequest
             'task_name' => 'required',
             'task_description' => 'required',
             'zone_id' => 'required',
-            'date' => 'required',
             'starting_time' => 'required',
             'ending_time' => 'required',
 

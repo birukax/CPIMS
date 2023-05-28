@@ -25,4 +25,3 @@ const tpFormat24 = new Timepicker(picker, { format24: true });
 
 const picker1 = document.querySelector("#timepicker-format1");
 const tpFormat241 = new Timepicker(picker1, { format24: true });
-
