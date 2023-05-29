@@ -22,6 +22,8 @@ class CheckRole
             'admin' => [4],
             'dc' => [4, 5],
             'crime_manager' => [2, 3, 4, 5],
+            'leave_manager' => [3, 4],
+            'leave_request' => [1, 2, 3],
         ];
         $roleIds = $roles[$role] ?? [];
         if (!in_array(auth()->user()->role_id, $roleIds)) {

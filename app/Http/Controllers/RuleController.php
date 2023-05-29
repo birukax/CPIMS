@@ -15,6 +15,8 @@ class RuleController extends Controller
             'rules.rules',
             [
                 'rules' => Rule::all(),
+                'police_rule' => Rule::all()->where('role_id', 1),
+                'shift_leader_rule' => Rule::all()->where('role_id', 2),
             ]
         );
     }

@@ -1,15 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CrimeController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AttendanceController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PcController;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CrimeController;
+use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'rules'], function () {
         Route::get('/', [RuleController::class, 'index']);
+    });
+    Route::group(['prefix' => 'leave'], function () {
+        Route::get('/manage', [LeaveController::class, 'manage'])->middleware('CheckRole:leave_manager');
+        Route::get('/request', [LeaveController::class, 'request'])->middleware('CheckRole:leave_request');
+        Route::post('/create_lt', [LeaveController::class, 'create_lt'])->middleware('CheckRole:admin')->name('create_lt');
     });
 
     Route::group(['middleware' => 'CheckRole:sl',], function () {

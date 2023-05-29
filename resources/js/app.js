@@ -4,13 +4,22 @@ import "./index";
 import {
     Modal,
     Ripple,
+    Tab,
     Datepicker,
     Timepicker,
     Sidenav,
     Input,
     initTE,
 } from "tw-elements";
-initTE({ Datepicker, Timepicker, Input, Sidenav, Modal, Ripple });
+initTE({
+    Datepicker,
+    Tab,
+    Timepicker,
+    Input,
+    Sidenav,
+    Modal,
+    Ripple,
+});
 
 import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";

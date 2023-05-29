@@ -82,6 +82,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Crime::class);
     }
+    public function leaves(): HasMany
+    {
+        return $this->hasMany(Leave::class);
+    }
 
     public function tasks(): BelongsToMany
     {
