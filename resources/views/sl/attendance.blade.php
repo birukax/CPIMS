@@ -7,7 +7,7 @@
 
                 <div class="shadow-2xl">
                     <table class="items-center text-black">
-                        <thead class=" border-b bg-dark text-white">
+                        <thead class="text-white border-b  bg-dark">
                             <tr>
                                 <th scope="col" class="px-6 py-4">#</th>
                                 <th scope="col" class="px-6 py-4 ">Full Name</th>

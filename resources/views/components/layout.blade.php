@@ -22,36 +22,29 @@
         rel="stylesheet">
 </head>
 
-<body class="font-mono">
+<body class="font-mono [&>*]:leading-[1.6]">
 
-    <!-- ===== Preloader Start ===== -->
+    {{-- <!-- ===== Preloader Start ===== -->
     <x-preloader />
-    <!-- ===== Preloader End ===== -->
+    <!-- ===== Preloader End ===== --> --}}
 
-    <!-- ===== Page Wrapper Start ===== -->
-    <div class="flex h-screen overflow-y-hidden">
-        <!-- ===== Content Area Start ===== -->
-        <div class="flex overflow-hidden bg-white ">
-
-            <!-- ===== Header Start ===== -->
+    <!-- ===== Sidebar Start ===== -->
+<x-sidebar />
+<!-- ===== Sidebar End ===== -->
+<!-- ===== Header Start ===== -->
             <x-header />
             <!-- ===== Header End ===== -->
 
-            <div class="flex w-screen mt-20">
-                <!-- ===== Sidebar Start ===== -->
-                <x-navbar />
-                <!-- ===== Sidebar End ===== -->
 
-                <!-- ===== Main Content Start ===== -->
-                <main class="relative w-full overflow-y-auto ">
-                        {{ $slot }}
-                </main>
-                <!-- ===== Main Content End ===== -->
-            </div>
-        </div>
-        <!-- ===== Content Area End ===== -->
-    </div>
-    <!-- ===== Page Wrapper End ===== -->
+<div
+      class="w-full bg-white "
+      id="content">
+<!-- ===== Main Content Start ===== -->
+    {{ $slot }}
+<!-- ===== Main Content End ===== -->
+
+      </div>
+
 </body>
 
 </html>

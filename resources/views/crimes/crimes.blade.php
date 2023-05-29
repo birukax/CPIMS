@@ -1,12 +1,12 @@
 <x-layout>
 @if(Auth()->user()->role_id === 2)
 
-    <div class="flex-col mt-5 mx-30">
-        <div class="flex justify-between mx-10 my-5 ">
+    <div class="flex-col">
+        <div class="flex justify-between ">
             {{-- report a crime --}}
             <div class="">
                 <a href="/crimes/report_crime"
-                    class="inline-flex items-center justify-center gap-2 rounded-full bg-dark py-2 px-3 text-center font-medium text-white hover:bg-opacity-90 lg:px-4 xl:px-6">
+                    class="inline-flex items-center justify-center gap-2 px-3 py-2 font-medium text-center text-white rounded-full bg-dark hover:bg-opacity-90 lg:px-4 xl:px-6">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-5 h-5">

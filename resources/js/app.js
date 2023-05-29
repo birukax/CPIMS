@@ -1,9 +1,16 @@
 import "./bootstrap";
 import "./index";
 // Initialization for ES Users
-import { Modal, Ripple, initTE } from "tw-elements";
-import { Datepicker, Timepicker, Input } from "tw-elements";
-initTE({ Datepicker, Timepicker, Input, Modal, Ripple });
+import {
+    Modal,
+    Ripple,
+    Datepicker,
+    Timepicker,
+    Sidenav,
+    Input,
+    initTE,
+} from "tw-elements";
+initTE({ Datepicker, Timepicker, Input, Sidenav, Modal, Ripple });
 
 import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
@@ -25,3 +32,33 @@ const tpFormat24 = new Timepicker(picker, { format24: true });
 
 const picker1 = document.querySelector("#timepicker-format1");
 const tpFormat241 = new Timepicker(picker1, { format24: true });
+
+const sidenav = document.getElementById("full-screen-example");
+const sidenavInstance = Sidenav.getInstance(sidenav);
+
+let innerWidth = null;
+
+const setMode = (e) => {
+    // Check necessary for Android devices
+    if (window.innerWidth === innerWidth) {
+        return;
+    }
+
+    innerWidth = window.innerWidth;
+
+    if (window.innerWidth < sidenavInstance.getBreakpoint("sm")) {
+        sidenavInstance.changeMode("over");
+        sidenavInstance.hide();
+    } else {
+        sidenavInstance.changeMode("side");
+        sidenavInstance.show();
+    }
+};
+
+if (window.innerWidth < sidenavInstance.getBreakpoint("sm")) {
+    setMode();
+}
+
+// Event listeners
+window.addEventListener("resize", setMode);
+COPY;

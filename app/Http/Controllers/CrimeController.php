@@ -20,6 +20,13 @@ class CrimeController extends Controller
             ]
         );
     }
+
+    public function show(string $id)
+    {
+        return view('crimes.crime_detail', [
+            'crime' => Crime::find($id)
+        ]);
+    }
     public function create(Request $request)
     {
         return view('crimes.report_crime');
@@ -73,10 +80,5 @@ class CrimeController extends Controller
         }
     }
 
-    public function show(string $id)
-    {
-        return view('crimes.crime_detail', [
-            'crime' => Crime::find($id)
-        ]);
-    }
+
 }

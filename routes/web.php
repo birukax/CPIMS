@@ -8,6 +8,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PcController;
+use App\Http\Controllers\RuleController;
 use App\Http\Controllers\TaskController;
 
 /*
@@ -29,6 +30,10 @@ use App\Http\Controllers\TaskController;
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [UserController::class, 'index']);
 
+    Route::group(['prefix' => 'rules'], function () {
+        Route::get('/', [RuleController::class, 'index']);
+    });
+
     Route::group(['middleware' => 'CheckRole:sl',], function () {
         Route::get('/attendance/staff_entered/{id}', [AttendanceController::class, 'staff_entered']);
         Route::get('/attendance/staff_left/{id}', [AttendanceController::class, 'staff_left']);
@@ -46,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::group(['middleware' => 'CheckRole:co'], function () {
 
+        Route::post('rules/create_rule', [RuleController::class, 'store'])->name('create_rule');
         Route::group(['prefix' => 'pcs'], function () {
             Route::get('/', [PcController::class, 'index']);
             Route::get('/edit_pc/{id}', [PcController::class, 'edit'])->name('edit_pc');
@@ -57,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'CheckRole:admin'], function () {
         Route::group(['prefix' => 'users'], function () {
             Route::post('/register', [UserController::class, 'store'])->name('register');
-            Route::get('/create_user', [UserController::class, 'create'])->name('create_user');
+            Route::get('/', [UserController::class, 'create'])->name('create_user');
             Route::get('/edit_user/{id}', [UserController::class, 'edit'])->name('edit_user');
             Route::put('/user_edited', [UserController::class, 'update'])->name('user_edited');
         });

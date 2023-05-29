@@ -18,7 +18,7 @@ export default {
         },
         colors: {
             current: "currentColor",
-            dark: "#3c096c",
+            dark: "#240046",
             oxfordBlue: "#5390d9",
             transparent: "transparent",
             white: "#FFFFFF",

@@ -1,2 +1,2 @@
 
-    <img class="w-30 h-18"  src="{{ asset('storage/images/logo/new-logo.svg') }}" />
+    <img class="w-25 h-25"  src="{{ asset('storage/images/logo/new-logo.svg') }}" />

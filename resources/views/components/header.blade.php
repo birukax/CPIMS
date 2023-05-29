@@ -1,14 +1,6 @@
-<header class="fixed flex w-full h-20 bg-white shadow">
-    <div class="flex items-center justify-between flex-grow mx-2 items-right md:px-6 2xl:px-11">
-
-        <div class="relative mx-auto">
-            <a href="/" class="">
-                <x-application-logo />
-            </a>
-        </div>
-
-
-        <div class="relative flex gap-2 items-right 2xsm:gap-7">
+<header class="sticky top-0 flex w-full h-20 bg-white shadow">
+    <div class="flex items-center justify-between flex-grow mx-2 items-right">
+        <div class="absolute right-0 flex gap-2 mr-5 items-right">
             <form action="/logout" method="post">
                 @csrf
                 <button type="submit"
@@ -27,7 +19,7 @@
 
             <!-- User Area -->
             <div class="flex gap-3 items-right">
-                <span class="hidden text-right lg:block">
+                <span class="text-right lg:block">
                     <span class="block font-medium text-md text-dark">{{ Auth::user()->name }}</span>
                     <span class="block text-sm font-medium text-dark">{{ Auth::user()->role->name }}</span>
                 </span>
@@ -38,6 +30,19 @@
 
             </div>
             <!-- User Area -->
+
+            <button id="toggler"
+            class="inline-flex px-3 py-3 text-sm font-medium leading-tight text-white uppercase transition duration-150 ease-in-out rounded shadow-md bg-dark hover:bg-dark hover:shadow-lg focus:bg-dark focus:shadow-lg focus:outline-none focus:ring-0 active:bg-dark active:shadow-lg md:hidden"
+            data-te-sidenav-toggle-ref data-te-target="#full-screen-example" data-te-ripple-init
+            data-te-ripple-color="white">
+            <span class="block [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd"
+                        d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </button>
         </div>
     </div>
 </header>
