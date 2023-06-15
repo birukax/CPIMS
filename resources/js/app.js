@@ -3,21 +3,23 @@ import "./index";
 // Initialization for ES Users
 import {
     Modal,
-    Ripple,
     Tab,
+    Input,
     Datepicker,
     Timepicker,
     Sidenav,
-    Input,
+    Select,
+    Ripple,
     initTE,
 } from "tw-elements";
 initTE({
+    Input,
     Datepicker,
     Tab,
     Timepicker,
-    Input,
     Sidenav,
     Modal,
+    Select,
     Ripple,
 });
 
@@ -35,12 +37,16 @@ const datepickerDisablePast = document.getElementById(
 new Datepicker(datepickerDisablePast, {
     disablePast: true,
 });
+const datepickerDisablePast1 = document.getElementById(
+    "datepicker-disable-past1"
+);
+new Datepicker(datepickerDisablePast1, {
+    disablePast: true,
+});
 
 const picker = document.querySelector("#timepicker-format");
 const tpFormat24 = new Timepicker(picker, { format24: true });
 
-const picker1 = document.querySelector("#timepicker-format1");
-const tpFormat241 = new Timepicker(picker1, { format24: true });
 
 const sidenav = document.getElementById("full-screen-example");
 const sidenavInstance = Sidenav.getInstance(sidenav);

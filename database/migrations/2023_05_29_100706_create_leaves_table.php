@@ -20,7 +20,8 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->integer('leave_days');
-            $table->string('evidence_path');
+            $table->string('evidence')->nullable();
+            $table->string('evidence_path')->nullable();
             $table->longText('co_decision')->nullable();
             $table->longText('admin_decision')->nullable();
 

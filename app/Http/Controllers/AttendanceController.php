@@ -11,6 +11,17 @@ use App\Http\Controllers\Controller;
 
 class AttendanceController extends Controller
 {
+    public function index(Request $request)
+    {
+        return view(
+            'attendances.attendances',
+            [
+                'polices' => User::where('role_id', 1)->orderBy("name", "asc")->paginate(7),
+                'today' => Carbon::today()->toDateString()
+
+            ]
+        );
+    }
     public function staff_entered(string $id)
     {
         $staff_exists = Attendance::all()->where('staff_id', '=', $id)
@@ -29,7 +40,7 @@ class AttendanceController extends Controller
                     'created_at' => carbon::now()
                 ];
                 Attendance::insert($staff_arrived);
-                return redirect('/')->with('message', 'staff arrived!');
+                return back()->with('message', 'staff arrived!');
             }
         } catch (Exception $e) {
             dd($e);
@@ -38,21 +49,22 @@ class AttendanceController extends Controller
 
     public function staff_left(string $id)
     {
+
         $staff_exists = Attendance::all()->where('staff_id', $id)
-            ->where('date', '=', Carbon::now()->toDateString())
-            ->where('left', '!=', NULL);
+        ->where('date', '=', Carbon::today()->toDateString())
+            ->where('left', '!==', NULL);
 
         try {
             if (
                 count($staff_exists) !== 0
             ) {
 
-                return redirect('/not_null');
+                return back()->with('message', 'staff is not in campus!');
             } else {
                 Attendance::query()->where('staff_id', $id)
                     ->where('date', '=', Carbon::now()->toDateString())
                     ->update(['left' => Carbon::now()->toTimeString()]);
-                return redirect('/')->with('message', 'Staf left!');
+                return back()->with('message', 'Staff left!');
             }
         } catch (Exception $e) {
             dd($e);

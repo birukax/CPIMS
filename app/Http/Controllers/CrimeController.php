@@ -6,11 +6,14 @@ use Exception;
 use App\Models\Task;
 use App\Models\Crime;
 use Illuminate\Http\Request;
+use App\Services\CrimeService;
 use App\Http\Requests\ReportCrimeRequest;
 
 class CrimeController extends Controller
 {
-
+    public function __construct(Request $request)
+    {
+    }
     public function index(Request $request)
     {
         return view(
@@ -21,27 +24,27 @@ class CrimeController extends Controller
         );
     }
 
-    public function show(string $id)
+    public function view(string $id)
     {
         return view('crimes.crime_detail', [
             'crime' => Crime::find($id)
         ]);
     }
-    public function create(Request $request)
+    public function show(Request $request)
     {
         return view('crimes.report_crime');
     }
-    public function store(ReportCrimeRequest $request)
+
+    public function store(Request $request, CrimeService $crimeService)
     {
         try {
-
-            Crime::create($request->validated());
-
-            return redirect('/crimes')->with('message', 'Crime reported successfully');
+            $crimeService->store($request);
+            return back()->with('message', 'Crime Reported Successfully');
         } catch (Exception $e) {
             dd($e);
             return back()->withErrors($e);
         }
+
     }
 
     public function decision(Request $request, String $id)

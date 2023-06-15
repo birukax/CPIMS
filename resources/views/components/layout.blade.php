@@ -22,7 +22,7 @@
         rel="stylesheet">
 </head>
 
-<body class="font-mono [&>*]:leading-[1.6]">
+<body class="font-sans [&>*]:leading-[1.6]">
 
     {{-- <!-- ===== Preloader Start ===== -->
     <x-preloader />
@@ -37,7 +37,7 @@
 
 
 <div
-      class="w-full bg-white "
+      class="w-full bg-gray"
       id="content">
 <!-- ===== Main Content Start ===== -->
     {{ $slot }}

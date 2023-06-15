@@ -1,17 +1,20 @@
 <!-- Button trigger modal -->
 <button type="button"
-    class="inline-flex gap-2 rounded bg-dark px-3 py-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:opacity-75 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-dark focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-dark active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-    data-te-toggle="modal" data-te-target="#assignPolice{{ $task->id }}" data-te-ripple-init data-te-ripple-color="light">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+    class="inline-flex gap-1 rounded bg-dark px-2 py-1 text-xs font-light leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:opacity-75 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-dark focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-dark active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+    data-te-toggle="modal" data-te-target="#assignPolice{{ $task->id }}" data-te-ripple-init
+    data-te-ripple-color="light">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-4 h-4">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
+    </svg>
     Add police
 </button>
 
 <!-- Modal -->
 <div data-te-modal-init
     class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-    id="assignPolice{{ $task->id }}" tabindex="-1" aria-labelledby="assignPolice{{ $task->id }}Label" aria-hidden="true">
+    id="assignPolice{{ $task->id }}" tabindex="-1" aria-labelledby="assignPolice{{ $task->id }}Label"
+    aria-hidden="true">
     <div data-te-modal-dialog-ref
         class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
         <div
@@ -28,15 +31,15 @@
 
             <!--Modal body-->
             <div class="relative flex-auto p-4" data-te-modal-body-ref>
-                <form action="/tasks/{{ $task->id }}/police_assigned" method="post">
-                    @csrf
-                    {{-- <input hidden name="id" value="{{ $task->id }}" /> --}}
-                    <div class="flex flex-col">
-                        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                                <div class="overflow-hidden">
-                                    <table class="min-w-full text-sm font-light text-left">
-                                        @unless ($availables->isEmpty())
+                @unless ($availables->isEmpty())
+                    <form action="/tasks/{{ $task->id }}/police_assigned" method="post">
+                        @csrf
+                        {{-- <input hidden name="id" value="{{ $task->id }}" /> --}}
+                        <div class="flex flex-col">
+                            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden">
+                                        <table class="min-w-full text-sm font-light text-left">
                                             <thead class="font-medium border-b dark:border-neutral-500">
                                                 <tr>
                                                     <th scope="col" class="px-6 py-4">Name</th>
@@ -67,25 +70,25 @@
 
 
                                             </tbody>
-                                        @else
-                                            <h3 class="font-bold text-md">No one is at the campus!</h3>
-                                        @endunless
-                                    </table>
+
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-            </div>
+                </div>
 
-            <!--Modal footer-->
-            <div
-                class="flex flex-wrap items-center justify-end flex-shrink-0 p-4 border-t-2 border-opacity-100 rounded-b-md border-neutral-100 dark:border-opacity-50">
-                <x-button class="ml-4 bg-dark" type="submit" data-te-ripple-init data-te-ripple-color="light">
-                    {{ __('Assign') }}
-                </x-button>
-            </div>
-            </form>
-
+                <!--Modal footer-->
+                <div
+                    class="flex flex-wrap items-center justify-end flex-shrink-0 p-4 border-t-2 border-opacity-100 rounded-b-md border-neutral-100 dark:border-opacity-50">
+                    <x-button class="ml-4 bg-dark" type="submit" data-te-ripple-init data-te-ripple-color="light">
+                        {{ __('Assign') }}
+                    </x-button>
+                </div>
+                </form>
+            @else
+                <h3 class="font-bold text-md">No one is at the campus!</h3>
+            @endunless
         </div>
     </div>
 </div>

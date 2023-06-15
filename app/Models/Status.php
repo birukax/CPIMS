@@ -14,4 +14,9 @@ class Status extends Model
     {
         return $this->hasMany(Crime::class);
     }
+
+    public function leaves(): HasMany
+    {
+        return $this->HasMany(Leave::class);
+    }
 }

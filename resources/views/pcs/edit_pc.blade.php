@@ -1,6 +1,6 @@
-<div class=" button items-center mx-auto">
+<div class="items-center mx-auto  button">
     <button type="button"
-    class="inline-flex items-center justify-center gap-2 rounded-full bg-dark py-1 px-2 text-center font-sm text-white hover:bg-opacity-90 lg:px-3 xl:px-4"
+    class="inline-flex items-center justify-center gap-2 px-2 py-1 text-sm text-center text-white rounded-lg bg-dark hover:bg-opacity-90 lg:px-2 xl:px-2"
      data-te-toggle="modal" data-te-target="#editPcModal{{ $pc->id }}" data-te-ripple-init
         data-te-ripple-color="light">
         <span>
@@ -22,16 +22,16 @@
     <div data-te-modal-dialog-ref
         class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
         <div
-            class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+            class="relative flex flex-col w-full text-current bg-white border-none rounded-md shadow-lg outline-none pointer-events-auto bg-clip-padding dark:bg-neutral-600">
             <div
-                class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-2 ">
+                class="flex items-center justify-between flex-shrink-0 p-2 border-b-2 border-opacity-100 rounded-t-md border-neutral-100 ">
                 <!--Modal title-->
-                <h1 class="text-4xl font-extrabold text-center text-dark my-3 mx-auto">Register PC</h1>
+                <h1 class="mx-auto my-3 text-4xl font-extrabold text-center text-dark">Register PC</h1>
 
             </div>
 
             <div class="p-3">
-                <h1 class="text-4xl font-extrabold text-center text-dark my-7 uppercase">Edit PC: {{ $pc->brand }}</h1>
+                <h1 class="text-4xl font-extrabold text-center uppercase text-dark my-7">Edit PC: {{ $pc->brand }}</h1>
 
 
                 <x-validation-errors class="mb-4" />

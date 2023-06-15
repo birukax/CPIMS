@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Zone extends Model
 {
     use HasFactory;
-    protected $fillable = ['zone', 'status'];
+    protected $fillable = ['name', 'slug', 'status'];
 
     public function tasks(): BelongsToMany
     {

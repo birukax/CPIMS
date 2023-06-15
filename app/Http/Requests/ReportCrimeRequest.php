@@ -11,7 +11,7 @@ class ReportCrimeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,13 +22,7 @@ class ReportCrimeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'crime' => 'required',
-            'description' => 'required',
-            'offender_name' => 'required',
-            'offender_id' => 'required',
-            'offender_phone_number' => 'required',
-            'offender_statement' => 'required',
-            'reported_by' => 'required',
+
         ];
     }
 }

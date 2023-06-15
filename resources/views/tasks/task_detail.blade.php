@@ -1,21 +1,20 @@
 <x-layout>
-    <div class="w-full flex-col ">
-        <div class="flex items-center justify-center mx-auto mt-3">
-            <h2 class=" font-extrabold text-3xl text-dark">Task Detail</h2>
-        </div>
-        <div class="gap-4 flex justify-between grid-cols-2 mx-8">
-            <div class="left-0 w-3/5">
-                <div class="container p-2 sm:p-4 text-black">
+    <div class="flex-col w-full p-5 bg-white">
+        <x-validation-errors class="mb-2" />
+        <x-message />
+        <div class="grid gap-2 md:grid-cols-2 grid-col-1 mt-5">
+            <div class="md:col-span-1">
+                <div class="container p-2 text-black sm:p-4">
                     <div class="flex justify-between">
-                        <h2 class="mb-4 text-2xl font-semibold leading-tight shadow-lg">Assigned Police</h2>
+                        <h2 class="mb-4 text-2xl font-semibold leading-tight uppercase">Assigned Police</h2>
                         <div class="items-center">
 
-                            @include('tasks.add_user')
+                            @include('tasks.add_user_modal1')
                         </div>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="min-w-full text-sm text-left">
-                            <thead class="text-white bg-dark">
+                            <thead class="text-white bg-oxfordBlue">
 
                                 <tr>
                                     <th class="p-3">#</th>
@@ -25,9 +24,9 @@
                                     <th class="p-3">Action</th>
                                 </tr>
                             </thead>
-                            <tbody class=" mb-1">
+                            <tbody class="mb-1 ">
                                 @foreach ($task->users as $user)
-                                    <tr class="border-b border-opacity-20 border-gray-700 bg-gray-900">
+                                    <tr class="bg-gray-900 border-b border-gray-700 border-opacity-20">
                                         <td class="p-3">
                                             <p>{{ $no += 1 }}</p>
                                         </td>
@@ -47,7 +46,7 @@
                                                 action="/tasks/task/remove_police/{{ $task->id }}/{{ $user->id }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <x-button class="bg-dark py-1 px-3 text-sm font-light"
+                                                <x-button class="px-3 py-1 text-sm font-light bg-dark"
                                                     data-te-ripple-init data-te-ripple-color="light">
                                                     {{ __('Remove') }}
                                                 </x-button>
@@ -62,26 +61,27 @@
                 </div>
             </div>
 
-            <div class="right-0 mt-20  text-black gap-5">
+            <div class="gap-5 p-3 md:col-span-1  text-black ">
+                <h2 class="text-3xl font-bold uppercase text-dark">Task Detail</h2>
 
-                <div class="flex justify-start  text-left  mt-3">
-                    <h3 class="font-bold text-xl mr-3">Task name:</h3>
-                    <p class=" ">{{ $task->task_name }}</p>
+                <div class="flex justify-between mt-3 text-left">
+                    <h3 class="mr-2 text-lg font-semibold">Task name:</h3>
+                    <p class="">{{ $task->task_name }}</p>
                 </div>
-                <div class="flex justify-start text-left mt-3">
-                    <h3 class="font-bold text-xl mr-3 justify-start">Task Description:</h3>
+                <div class="flex justify-between mt-3 text-left">
+                    <h3 class=" mr-2 text-lg font-semibold">Task Description:</h3>
                     <p class="">{{ $task->task_description }}</p>
                 </div>
-                <div class="flex justify-start  text-left mt-3">
-                    <h3 class="font-bold text-xl mr-3">Task Date:</h3>
+                <div class="flex justify-between mt-3 text-left">
+                    <h3 class="mr-2 text-lg font-semibold">Task Date:</h3>
                     <p class="flex">{{ $task->date }}</p>
                 </div>
-                <div class="flex justify-start text-left mt-3">
-                    <h3 class="font-bold text-xl mr-3">Starting Time:</h3>
+                <div class="flex justify-between mt-3 text-left">
+                    <h3 class="mr-2 text-lg font-semibold">Starting Time:</h3>
                     <p class="flex">{{ $task->starting_time }}</p>
                 </div>
-                <div class="flex justify-start text-left mt-3">
-                    <h3 class="font-bold text-xl mr-3">Ending Time:</h3>
+                <div class="flex justify-between mt-3 text-left">
+                    <h3 class="mr-2 text-lg font-semibold">Ending Time:</h3>
                     <p class="flex">{{ $task->ending_time }}</p>
                 </div>
 

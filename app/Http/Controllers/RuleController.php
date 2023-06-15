@@ -40,4 +40,21 @@ class RuleController extends Controller
             return back()->withErrors($e);
         }
     }
+    public function update(Request $request)
+    {
+        try {
+
+            $request->validate([
+                'rule' => 'required',
+            ]);
+            $ruleData = [
+                'rule' => $request->rule,
+            ];
+            Rule::update($ruleData);
+            return redirect('/rules')->with('message', 'Rule edited successfully');
+        } catch (Exception $e) {
+            dd($e);
+            return back()->withErrors($e);
+        }
+    }
 }

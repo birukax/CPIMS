@@ -1,80 +1,44 @@
 <x-layout>
+    <x-validation-errors class="mb-2" />
+    <x-message />
     <div class="flex flex-col w-full">
-        @include('tasks.create_task')
-        <x-validation-errors class="mb-4" />
-        <x-message />
-        <div class="gap-3 mx-10 my-5 ">
-            <div class="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4 xl:grid-cols-4 2xl:gap-6">
+        <div class="inline-flex  justify-end md:mx-5 gap-2 md:gap-6 mt-5">
+            @include('tasks.create_zone_modal')
+            @include('tasks.create_task')
+        </div>
 
-                @foreach ($tasks as $task)
-                    <div class="relative max-w-sm pb-10 rounded shadow-lg">
-                        <div class="px-2 py-3">
-                            <div class="pb-2 text-xl font-extrabold uppercase border-b text-dark justify-between">
-                                {{ $task->task_name }}
-                                <span
-                                    class="inline-block text-base right-0 font-medium rounded-full text-oxfordBlue ">{{ $task->date }}</span>
-                            </div>
-                            <p class="pt-2 font-sans text-xs text-black-2 xl:text-sm">
-                                {{ $task->task_description }}
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-between px-3 py-2">
-                            <span class="text-sm font-medium text-black ">Starting time:</span>
-                            <span
-                                class="inline-block text-sm font-semibold rounded-full text-oxfordBlue">{{ $task->starting_time }}</span>
-                        </div>
 
-                        <div class="flex items-center justify-between px-3 py-2">
-                            <span class="text-sm font-medium text-black ">Ending time:</span>
-                            <span
-                                class="inline-block text-sm font-semibold rounded-full text-oxfordBlue">{{ $task->ending_time }}</span>
-                        </div>
-                        <div class="flex justify-between gap-3 px-3 py-2 ">
+        <!--Pills navigation-->
+        <ul class="flex flex-col flex-wrap pl-0 mx-auto mb-2 list-none md:flex-row" id="pills-tab" role="tablist" data-te-nav-ref>
+            <li role="presentation">
+                <a href="#pills-card"
+                    class="my-2 block rounded bg-neutral-100 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-tight text-neutral-500 data-[te-nav-active]:!bg-oxfordBlue data-[te-nav-active]:text-white dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700 md:mr-4"
+                    id="pills-table-tab" data-te-toggle="pill" data-te-target="#pills-table" data-te-nav-active
+                    role="tab" aria-controls="pills-table" aria-selected="true">Table</a>
+            </li>
+            <li role="presentation">
+                <a href="#pills-table"
+                    class="my-2 block rounded bg-neutral-100 px-3 pb-2 pt-2.5 text-xs font-medium uppercase leading-tight text-neutral-500 data-[te-nav-active]:!bg-oxfordBlue data-[te-nav-active]:text-white dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700 md:mr-4"
+                    id="pills-card-tab" data-te-toggle="pill" data-te-target="#pills-card" role="tab"
+                    aria-controls="pills-card" aria-selected="false">Card</a>
+            </li>
 
-                            <span class="sticky text-sm font-medium text-black ">Assigned police:</span>
-                            <span
-                                class="inline-block whitespace-nowrap rounded-full bg-gray px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-black">
+        </ul>
 
-                                {{ count($task->users) }}
-                            </span>
-                        </div>
-
-                        <div class="flex justify-between gap-3 px-3 py-2">
-
-                            <span class="text-sm font-medium text-black ">Zones:</span>
-                            <div class="flex flex-col gap-1">
-                                @foreach ($task->zones as $zone)
-                                    <span
-                                        class="inline-block whitespace-nowrap mb-1 text-black rounded-full bg-gray px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.80em] font-bold leading-none">
-                                        #{{ $zone->name }}
-                                    </span>
-                                @endforeach
-
-                            </div>
-
-                        </div>
-                        <div class="absolute justify-around bottom-2 left-2">
-
-                            @include('tasks.add_user')
-                        </div>
-                        <div class="absolute justify-around bottom-2 right-2 ">
-                            <a href="/tasks/task_detail/{{ $task->id }}"
-                                class="inline-flex rounded gap-2 bg-oxfordBlue px-3 py-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:opacity-75 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-dark focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-dark active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                                    </svg>
-
-                                </span>
-                                Detail
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
+        <!--Pills content-->
+        <div class="mb-6">
+            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab" data-te-tab-active>
+                @include('tasks.tasks_table')
+            </div>
+            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab">
+                @include('tasks.tasks_card')
             </div>
         </div>
+
+
+
 
     </div>
 

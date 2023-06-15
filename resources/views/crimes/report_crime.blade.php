@@ -1,79 +1,66 @@
 <x-layout>
-    <div class="w-full">
-        <!-- Contact Form -->
-        <div class="border-b border-stroke py-4 px-6.5">
-            <h2 class="text-3xl font-extrabold text-dark">
-                Report Crime.
-            </h2>
-        </div>
-        <form method="POST" action="/crimes/crime_reported">
-            @csrf
-            <input type="hidden" name="reported_by" value="{{ auth()->user()->id }}" class="hidden">
-            <div class="flex justify-between w-full">
-                <div class="p-6.5 flex flex-col overflow-y-auto w-full">
-                    <div class="flex gap-6 row">
-                        <div class="mb-4.5 flex gap-3 xl:flex-row">
-                            <div class="w-full">
-                                <label class="mb-2.5 block text-dark">
-                                    Crime
-                                </label>
-                                <input name="crime" type="text" placeholder="Enter the crime name"
-                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-dark active:border-dark disabled:cursor-default disabled:bg-whiter ">
-                            </div>
-                        </div>
 
-                        <div class="w-5/6 mb-6">
-                            <label class="mb-2.5 block text-dark w-full">
-                                Crime Description
-                            </label>
-                            <textarea name="description" rows="6" placeholder="Type the crime description"
-                                class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-dark active:border-dark disabled:cursor-default disabled:bg-whiter"></textarea>
+
+    <section class="bg-gray-100">
+        <div class="mx-auto px-4 py-4">
+            <div class="rounded-lg bg-white p-4 shadow-lg">
+                <div class="">
+                    <h2 class="text-2xl font-bold text-black">
+                        Report Crime
+                    </h2>
+                </div>
+                <form action="{{ route('crime_reported') }}" method="post" class="space-y-4">
+                    @csrf
+                    <div class="grid grid-cols-2">
+                        <div class=" col-span-1">
+                            <label class="sr-only" for="crime">crime</label>
+                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="crime"
+                                type="text" name="crime" id="crime" />
                         </div>
                     </div>
 
-                    <div class="flex items-stretch gap-6 ">
-                        <div class="flex flex-col">
-                            <div class="w-full mb-1">
-                                <label class="block mb-1 text-dark">
-                                    Offender's Name
-                                </label>
-                                <input name="offender_name" type="text" placeholder="Enter the criminal's name"
-                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-dark active:border-dark disabled:cursor-default disabled:bg-whiter">
-                            </div>
+                    <div>
+                        <label class="sr-only" for="description">Crime Detail</label>
 
-                            <div class="w-full mb-1">
-                                <label class="block mb-1 text-dark">
-                                    Offender's ID
-                                </label>
-                                <input name="offender_id" type="text" placeholder="Enter the criminal's ID"
-                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-dark active:border-dark disabled:cursor-default disabled:bg-whiter">
-                            </div>
-                            <div class="w-full mb-1">
-                                <label class="block mb-1 text-dark">
-                                    Offender's Phone
-                                </label>
-                                <input name="offender_phone_number" type="text"
-                                    placeholder="Enter the criminal's phone number"
-                                    class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-dark active:border-dark disabled:cursor-default disabled:bg-whiter">
-                            </div>
+                        <textarea class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="detail" rows="6" name="description"
+                            id="description"></textarea>
+                    </div>
 
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <div>
+                            <label class="sr-only" for="offender_name">Offender's Name</label>
+                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Offender's Name"
+                                type="text" name="offender_name" id="offender_name" />
                         </div>
-                        <div class="w-5/6 mb-3">
-                            <label class="w-full mb-1 text-dark">
-                                Offender's Statement
-                            </label>
-                            <textarea name="offender_statement" rows="6" placeholder="Type the statement of the criminal"
-                                class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-dark active:border-dark disabled:cursor-default disabled:bg-whiter"></textarea>
+
+                        <div>
+                            <label class="sr-only" for="offfender_id">Offender's ID</label>
+                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Offender's ID"
+                                type="text" name="offender_id" id="offfender_id" />
+                        </div>
+                        <div>
+                            <label class="sr-only" for="offender_phone_number">Phone</label>
+                            <input class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                placeholder="Offender's Phone Number" type="number" name="offender_phone_number"
+                                id="offender_phone_number" />
                         </div>
                     </div>
-                    <div class="mt-2.5 mx-auto items-center">
-                        <button class="flex justify-center p-2 font-medium rounded-full w-30 bg-dark text-gray"
-                            type="submit">
+                    <div>
+                        <label class="sr-only" for="offender_statement">Offender's statement</label>
+
+                        <textarea class="w-full rounded-lg border-gray-200 p-3 text-sm" placeholder="Offender's Statement" rows="6"
+                            name="offender_statement" id="offender_statement"></textarea>
+                    </div>
+
+                    <div class="mt-2 items-center">
+                        @include('crimes.add_victim_modal')
+                        <button type="submit"
+                            class="inline-block w-full rounded-lg bg-dark px-3 py-1 font-medium text-white sm:w-auto">
                             Report
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
-        </form>
-    </div>
+        </div>
+    </section>
 </x-layout>

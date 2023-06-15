@@ -34,7 +34,7 @@ class User extends Authenticatable
         'password',
         'role_id',
         'phone',
-        'available',
+        'available_leave',
         'status',
     ];
 
@@ -75,7 +75,7 @@ class User extends Authenticatable
 
     public function attendances(): HasMany
     {
-        return $this->hasMany(Attendance::class);
+        return $this->hasMany(Attendance::class, 'staff_id');
     }
 
     public function crimes(): HasMany

@@ -16,7 +16,9 @@ class Leave extends Model
         'reason',
         'status_id',
         'start_date',
-        'end_date', 'leave_days',
+        'end_date',
+        'leave_days',
+        'evidence',
         'evidence_path',
         'co_decision',
         'admin_decision'
@@ -25,5 +27,15 @@ class Leave extends Model
     public function user(): BelongsTo
     {
         return $this->BelongsTo(User::class);
+    }
+
+    public function lt(): BelongsTo
+    {
+        return $this->BelongsTo(Lt::class);
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->BelongsTo(Status::class);
     }
 }
