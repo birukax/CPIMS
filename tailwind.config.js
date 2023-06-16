@@ -19,7 +19,7 @@ export default {
         colors: {
             current: "currentColor",
             dark: "#240046",
-            oxfordBlue: "#5390d9",
+            oxfordBlue: "#023e8a",
             transparent: "transparent",
             white: "#FFFFFF",
             black: "#000000",

@@ -1,16 +1,16 @@
 <x-layout>
 
-    <div class="items-center w-full">
+    <x-validation-errors class="mb-4" />
+    <x-message />
+
+    <h1 class="my-4 text-2xl font-extrabold text-center uppercase text-dark">Edit: {{ $user->name }}</h1>
+    <div class="grid justify-between w-full grid-cols-1 gap-5 md:grid-cols-2">
+
+        <div class="mx-2 md:mx-5">
 
 
-        <div class="w-2/3 mx-auto ">
-
-            <h1 class="my-4 text-3xl font-extrabold text-center uppercase text-dark">Edit: {{ $user->name }}</h1>
 
 
-            <x-validation-errors class="mb-4" />
-
-            @include('partials.edit_password_modal')
 
             <form method="POST" class=" text-md" action="{{ route('user_edited') }}">
                 @csrf
@@ -75,5 +75,7 @@
                 </div>
             </form>
         </div>
+        @include('admin.edit_password')
+
     </div>
 </x-layout>

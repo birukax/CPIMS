@@ -1,11 +1,11 @@
 
 <x-layout>
 
-<div class="ml-2 overflow-auto bg-white rounded-lg shadow-lg  md:w-11/12 justify-center">
+<div class="justify-center mx-2 bg-white rounded-lg shadow-lg md:mx-6">
     <h2 class="my-4 text-lg font-bold text-center uppercase text-dark">Attendance</h2>
     <x-validation-errors class="p-2" />
     <x-message />
-    <div class="w-full overflow-x-auto">
+    <div class="w-full ">
         <table class="w-full bg-white">
             <thead>
                 <tr

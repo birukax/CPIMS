@@ -24,9 +24,9 @@
 
 <body class="font-sans [&>*]:leading-[1.6]">
 
-    {{-- <!-- ===== Preloader Start ===== -->
+    <!-- ===== Preloader Start ===== -->
     <x-preloader />
-    <!-- ===== Preloader End ===== --> --}}
+    <!-- ===== Preloader End ===== -->
 
     <!-- ===== Sidebar Start ===== -->
 <x-sidebar />

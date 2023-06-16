@@ -42,32 +42,36 @@ class AttendanceController extends Controller
                 Attendance::insert($staff_arrived);
                 return back()->with('message', 'staff arrived!');
             }
-        } catch (Exception $e) {
-            dd($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 
     public function staff_left(string $id)
     {
 
-        $staff_exists = Attendance::all()->where('staff_id', $id)
-        ->where('date', '=', Carbon::today()->toDateString())
-            ->where('left', '!==', NULL);
+        $staff_left = Attendance::all()->where('staff_id', $id)
+            ->where('date', '==', Carbon::today()->toDateString())
+            ->where('left', '!=', NULL);
+        $staff_entered = Attendance::all()->where('staff_id', $id)
+            ->where('date', '==', Carbon::today()->toDateString());
 
         try {
-            if (
-                count($staff_exists) !== 0
-            ) {
+            if (count($staff_left) !== 0) {
 
+                return back()->with('message', 'staff is not  campus!');
+            }
+            if (count($staff_entered) === 0) {
                 return back()->with('message', 'staff is not in campus!');
-            } else {
+            }
                 Attendance::query()->where('staff_id', $id)
                     ->where('date', '=', Carbon::now()->toDateString())
                     ->update(['left' => Carbon::now()->toTimeString()]);
                 return back()->with('message', 'Staff left!');
-            }
-        } catch (Exception $e) {
-            dd($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 }

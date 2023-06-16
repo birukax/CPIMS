@@ -45,19 +45,21 @@ class LeaveController extends Controller
 
     public function store(Request $request, LeaveService $leaveService)
     {
-        $pending = auth()->user()->leaves->where('status_id', '<=', 2);
-        if (count($pending) === 0) {
-            try {
+        try {
+            $pending = auth()->user()->leaves->where('status_id', '<=', 2);
+            if (count($pending) === 0) {
+
                 $leaveService->store($request);
                 return back()->with('message', 'Leave Requested Successfully');
-            } catch (Exception $e) {
-                dd($e);
-                return back()->withErrors($e);
+            } else {
+                return back()->with('message', 'You have a pending leave request');
             }
-        } else {
-            return back()->with('message', 'You have a pending leave request');
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
+
 
     public function decision(Request $request, LeaveService $leaveService, String $id)
     {
@@ -66,9 +68,15 @@ class LeaveController extends Controller
             $leaveService->decision($request, $id);
             return back()->with('message', 'Decision Made Successfully!');
         } catch (Exception $errors) {
-            return back()->withErrors('errors', $errors);
+
+            return back()->withErrors($errors->getMessage());
         }
     }
+    public function download_evidence(Request $request, String $path,)
+    {
+        return response()->download(storage_path($path));
+    }
+
 
     public function create_lt(Request $request)
     {
@@ -86,9 +94,9 @@ class LeaveController extends Controller
             Lt::create($lt);
 
             return back()->with('message', 'Leave type created successfully!');
-        } catch (Exception $e) {
+        } catch (Exception $errors) {
 
-            return Redirect::back()->withErrors(['msg' => 'The leave type already exists!']);
+            return back()->withErrors($errors->getMessage());
         }
     }
 }

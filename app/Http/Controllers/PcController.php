@@ -57,8 +57,9 @@ class PcController extends Controller
 
 
             return redirect('/pcs')->with('message', 'Pc registered successfully!');
-        } catch (Exception $e) {
-            return back()->withErrors($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 
@@ -86,8 +87,9 @@ class PcController extends Controller
 
 
             return redirect('/pcs')->with('message', 'Pc edited successfully!');
-        } catch (Exception $e) {
-            return back()->withErrors($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 }

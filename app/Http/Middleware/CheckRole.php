@@ -30,7 +30,7 @@ class CheckRole
         $roleIds = $roles[$role] ?? [];
         if (!in_array(auth()->user()->role_id, $roleIds)) {
 
-            abort(code: 403);
+            abort(code: 404);
         }
         return $next($request);
     }

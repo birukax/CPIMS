@@ -1,13 +1,13 @@
-<header class="sticky top-0 flex w-full h-20 bg-white shadow">
+<header class="top-0 flex w-full h-20 bg-white shadow md:sticky">
     <div class="flex items-center justify-between flex-grow mx-2 items-right">
-        <div class="absolute right-0 flex gap-2 sm:mr-5 items-right">
+        <div class="absolute right-0 flex gap-2 mr-2 md:mr-5 items-right">
             <form action="/logout" method="post">
                 @csrf
                 <button type="submit"
-                    class="inline-flex items-center justify-center gap-1 px-2 py-0.5 text-center text-white rounded-full bg-dark font-extralight xl:font-sm hover:bg-opacity-90 lg:px-2 xl:px-3">
+                    class="inline-flex items-center justify-center gap-1 px-2 py-1 text-center text-white rounded-full bg-dark font-extralight xl:text-sm hover:bg-opacity-90 lg:px-2 xl:px-3">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-4 h-4">
+                            stroke="currentColor" class="w-3 h-3">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                         </svg>
@@ -18,10 +18,10 @@
             </form>
 
             <!-- User Area -->
-            <div class="flex gap-3 items-right">
+            <div class="flex gap-3 text-black items-right">
                 <span class="text-right lg:block">
-                    <span class="block text-lg font-bold text-dark">{{ Auth::user()->name }}</span>
-                    <span class="block text-sm font-semibold text-dark">{{ Auth::user()->role->name }}</span>
+                    <span class="block text-lg font-bold ">{{ Auth::user()->name }}</span>
+                    <span class="block text-sm font-base ">{{ Auth::user()->role->name }}</span>
                 </span>
 
                 <span>

@@ -1,17 +1,17 @@
 <!-- component -->
 <div class="w-full md:p-2">
-    <div class="mb-8 overflow-hidden bg-white border rounded  border-grey-light">
+    <div class="mb-8 overflow-hidden bg-white border rounded border-grey-light">
         <div class="border-b md:p-2 border-grey-light bg-grey-lighter">
             <div class="mx-auto overflow-hidden bg-white rounded-lg shadow-lg">
                 <div class="px-2 py-4 sm:flex sm:items-center">
                     <div class="flex-grow">
                         <div class="flex justify-between border-b-4">
 
-                        <h3 class="px-2 py-3 font-medium leading-tight text-black">Leave Types</h3>
-                        <h3 class="px-2 py-3 font-medium leading-tight text-black">Leave Days</h3>
+                        <h3 class="px-2 py-3 font-medium leading-tight text-oxfordBlue">Leave types</h3>
+                        <h3 class="px-2 py-3 font-medium leading-tight text-oxfordBlue">Leave days</h3>
                         </div>
 
-                        <div class="w-full">
+                        <div class="w-full text-black">
                             @foreach ($lts as $lt)
                                 <div class="flex my-1 rounded cursor-pointer hover:bg-blue-lightest">
                                     <div class="w-8 h-10 py-1 text-center">

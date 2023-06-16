@@ -55,8 +55,9 @@ Route::group(['middleware' => ['auth',  'Available']], function () {
 
 
     Route::group(['prefix' => 'leave'], function () {
-        Route::get('/manage', [LeaveController::class, 'manage'])->middleware('CheckRole:leave_manager');
+        Route::get('/manage', [LeaveController::class, 'manage'])->middleware('CheckRole:leave_manager')->name('manage_leaves');
         Route::get('/leave_detail/{id}', [LeaveController::class, 'show'])->middleware('CheckRole:leave_manager');
+        Route::get('/download_evidence/{path}', [LeaveController::class, 'download_evidence'])->middleware('CheckRole:leave_manager');
         Route::get('/request', [LeaveController::class, 'request'])->middleware('CheckRole:leave_request');
         Route::post('/request_leave', [LeaveController::class, 'store'])->middleware('CheckRole:leave_request')->name('request_leave');
         Route::post('/create_lt', [LeaveController::class, 'create_lt'])->middleware('CheckRole:admin')->name('create_lt');
@@ -85,30 +86,33 @@ Route::group(['middleware' => ['auth',  'Available']], function () {
     });
     Route::group(['middleware' => 'CheckRole:co'], function () {
         Route::group(['prefix' => 'rules'], function () {
-
             Route::post('/create_rule', [RuleController::class, 'store'])->name('create_rule');
-            Route::post('/rule_edited', [RuleController::class, 'update'])->name('rule_edited');
+            Route::delete('/delete/{id}', [RuleController::class, 'destroy']);
+
         });
 
         Route::group(['prefix' => 'pcs'], function () {
-            Route::get('/', [PcController::class, 'index']);
+            Route::get('/', [PcController::class, 'index'])->name('pcs');
             Route::get('/edit_pc/{id}', [PcController::class, 'edit'])->name('edit_pc');
             Route::get('/register_pc', [PcController::class, 'create'])->name('register_pc');
             Route::post('/pc_registered', [PcController::class, 'store'])->name('pc_registered');
             Route::put('/pc_edited', [PcController::class, 'update'])->name('pc_edited');
         });
         Route::group(['prefix' => 'emergency'], function () {
-            Route::get('/', [EmergencyController::class, 'index']);
+            Route::get('/', [EmergencyController::class, 'index'])->name('emergencies');
             Route::post('/emergency_added', [EmergencyController::class, 'store'])->name('emergency_added');
             Route::put('/emergency_edited', [EmergencyController::class, 'update'])->name('emergency_edited');
         });
     });
     Route::group(['middleware' => 'CheckRole:admin'], function () {
         Route::group(['prefix' => 'users'], function () {
+            Route::get('/', [UserController::class, 'users'])->name('users');
+            Route::get('/create', [UserController::class, 'create'])->name('create');
             Route::post('/register', [UserController::class, 'store'])->name('register');
-            Route::get('/', [UserController::class, 'create'])->name('create_user');
             Route::get('/edit_user/{id}', [UserController::class, 'edit'])->name('edit_user');
             Route::put('/user_edited', [UserController::class, 'update'])->name('user_edited');
+            Route::put('/user_password_changed', [UserController::class, 'user_password_changed'])->name('user_password_changed');
+
         });
     });
 

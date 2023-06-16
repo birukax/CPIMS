@@ -2,12 +2,12 @@
 
 namespace App\Services;
 
-use Exception;
+use file;
 use App\Models\Lt;
-use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Leave;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class LeaveService
 {
@@ -25,7 +25,6 @@ class LeaveService
 
         $startDate = Carbon::parse($request->start_date);
         $start_date = $startDate->format('Y-m-d');
-        // dd($request);
         if ($request->leave_days === NULL) {
             $end_date = $startDate->addDays($leaveTypeDay);
             $leave_days = $leaveTypeDay;
@@ -33,7 +32,10 @@ class LeaveService
             $leave_days = $request->leave_days;
             $end_date = $startDate->addDays($leave_days);
         }
-
+        if ($request->evidence) {
+            $evidence_name = time() . $request->file('evidence')->getClientOriginalName();
+            $evidence_path = $request->file('evidence')->storeAs('evidences', $evidence_name, 'public');
+        }
 
 
         if (auth()->user()->role_id === 3) {
@@ -48,7 +50,8 @@ class LeaveService
             'leave_days' => $leave_days,
             'lt_id' => $request->lt_id,
             'status_id' => $status_id,
-            // 'evidence' => $evidence_name,
+            'evidence' => $evidence_name,
+            'evidence_path' => '/storage/' . $evidence_path,
             'start_date' => $start_date,
             'end_date' => $end_date,
         ];

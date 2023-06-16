@@ -15,7 +15,6 @@
                                     <th class="p-3">Name</th>
                                     <th class="p-3">Contact</th>
                                     <th class="p-3">Tasks</th>
-                                    <th class="p-3">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="mb-1 ">
@@ -35,18 +34,7 @@
                                             <p></p>
                                             <p class="text-gray-400">{{ count($user->tasks) }}</p>
                                         </td>
-                                        <td class="p-3">
-                                            <form method="POST"
-                                                action="/tasks/task/remove_police/{{ $task->id }}/{{ $user->id }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <x-button class="px-3 py-1 text-sm font-light bg-dark"
-                                                    data-te-ripple-init data-te-ripple-color="light">
-                                                    {{ __('Remove') }}
-                                                </x-button>
-                                            </form>
 
-                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

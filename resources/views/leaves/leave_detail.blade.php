@@ -75,7 +75,6 @@
                     </div>
                 @endif
 
-
                 <div class="p-4 space-y-1 border-b md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0">
                     <p class="text-gray-600">
                         Status:
@@ -109,14 +108,5 @@
                 @endif
             </div>
         </div>
-
-
-
-
-        <!-- support me by buying a coffee -->
-        <a href="https://www.buymeacoffee.com/danimai" target="_blank"
-            class="fixed bottom-0 right-0 p-2 text-white bg-purple-600 rounded-lg">
-            Support me
-        </a>
     </div>
 </x-layout>

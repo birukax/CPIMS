@@ -27,7 +27,7 @@ class EmergencyController extends Controller
             $request->validate([
                 'emergency_name' => 'required',
                 'emergency_contact_name' => 'required',
-                'emergency_contact_phone' => 'required',
+                'emergency_contact_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             ]);
 
             $emergency = [
@@ -48,8 +48,9 @@ class EmergencyController extends Controller
 
             Emergency::create($emergency);
             return back()->with('message', 'Emergency Added Successfully!');
-        } catch (Exception $e) {
-            dd($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 
@@ -59,7 +60,7 @@ class EmergencyController extends Controller
             $request->validate([
                 'emergency_name' => 'required', 'unique',
                 'emergency_contact_name' => 'required',
-                'emergency_contact_phone' => 'required',
+                'emergency_contact_phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10'],
             ]);
 
             $emergency = [
@@ -82,8 +83,19 @@ class EmergencyController extends Controller
 
             $editableEmergency->update($emergency);
             return back()->with('message', 'Emergency Edited Successfully!');
-        } catch (Exception $e) {
-            dd($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
+        }
+    }
+    public function destroy(String $id)
+    {
+        try {
+            Emergency::find($id)->delete();
+            return back()->with('message', 'Emergency deleted successfully!');
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 }

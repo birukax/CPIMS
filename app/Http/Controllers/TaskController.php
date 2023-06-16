@@ -27,20 +27,25 @@ class TaskController extends Controller
 
     public function show(string $id)
     {
-        if (auth()->user()->role_id === 2)
-        return view('tasks.task_detail', [
-            'task' => Task::find($id),
-            'zones' => Zone::all(),
-            'availables' => Attendance::all()->where('date', '=', Carbon::today()->toDateString()),
-            'no' => 0,
-        ]);
-        elseif (auth()->user()->role_id === 1) {
-            return view('police.police_tasks.task_detail', [
-                'task' => Task::find($id),
-                'zones' => Zone::all(),
-                'availables' => Attendance::all()->where('date', '=', Carbon::today()->toDateString()),
-                'no' => 0,
-            ]);
+        try {
+            if (auth()->user()->role_id === 2)
+                return view('tasks.task_detail', [
+                    'task' => Task::find($id),
+                    'zones' => Zone::all(),
+                    'availables' => Attendance::all()->where('date', '=', Carbon::today()->toDateString()),
+                    'no' => 0,
+                ]);
+            elseif (auth()->user()->role_id === 1) {
+                return view('police.police_tasks.task_detail', [
+                    'task' => Task::find($id),
+                    'zones' => Zone::all(),
+                    'availables' => Attendance::all()->where('date', '=', Carbon::today()->toDateString()),
+                    'no' => 0,
+                ]);
+            }
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 
@@ -60,9 +65,9 @@ class TaskController extends Controller
 
 
             return redirect('/tasks')->with('message', 'Task created successfully!');
-        } catch (Exception $e) {
-            dd($e);
-            return back()->withErrors($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 
@@ -81,8 +86,10 @@ class TaskController extends Controller
 
             return redirect('/tasks')->with('message', 'Zone created successfully!');
         } catch (Exception $errors) {
-            return back();
+
+            return back()->withErrors($errors->getMessage());
         }
+
     }
 
 
@@ -93,11 +100,18 @@ class TaskController extends Controller
             if ($task->ending_time < Carbon::now()->toTimeString()) {
                 return back()->with('message', 'Task Expired!');
             }
+            foreach ($request->user_id as $uid) {
+                if ($task->users()->find($uid)) {
+                    return back()->with('message', 'Police aleady assigned!');
+                }
+            }
             $task->users()->attach($request->user_id);
             return back()->with('message', 'Police assigned successfully!');
-        } catch (Exception $e) {
-            return back()->with('errors', 'Something went wrong!');
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
+
     }
 
     public function remove_user(String $task, String $user)
@@ -105,8 +119,10 @@ class TaskController extends Controller
         try {
             Task::find($task)->users()->detach($user);
             return back()->with('message', 'Police Removed successfully!');
-        } catch (Exception $e) {
-            dd($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
+
     }
 }

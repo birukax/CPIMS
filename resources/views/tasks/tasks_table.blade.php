@@ -1,9 +1,9 @@
-<div class="justify-center md:w-5/6 mx-auto mb-8 overflow-auto rounded-lg shadow-lg">
+<div class="justify-center mx-auto mb-8 overflow-auto rounded-lg shadow-lg md:w-5/6">
     <div class="w-full overflow-x-auto bg-white">
         <table class="w-full bg-white">
             <thead>
                 <tr
-                    class="text-sm font-semibold tracking-wide text-left text-white uppercase border-b border-white bg-dark">
+                    class="text-sm tracking-wide text-left text-white border-b border-white bg-dark">
                     <th class="px-2 py-1">Task Name + Date</th>
                     <th class="px-2 py-1">Starting Time</th>
                     <th class="px-2 py-1">Ending Time</th>
@@ -34,13 +34,13 @@
                                 </span>
                             @endforeach
                         </td>
-                        <td class="gap-2 items-center md:px-2 md:py-1 border text-ms justify-between">
+                        <td class="items-center justify-between gap-2 border md:px-2 md:py-1 text-ms">
                             <span>
                                 @include('tasks.add_user_modal2')
                             </span>
                             <span>
                                 <a href="/tasks/task_detail/{{ $task->id }}"
-                                    class="inline-flex rounded gap-1 mt-1 bg-oxfordBlue px-3 py-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:opacity-75 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-dark focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-dark active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                                    class="inline-flex rounded gap-1 mt-1 bg-oxfordBlue px-3 py-1 text-xs  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:opacity-75 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-dark focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-dark active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-4 h-4">

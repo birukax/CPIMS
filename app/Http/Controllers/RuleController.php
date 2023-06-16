@@ -35,26 +35,20 @@ class RuleController extends Controller
             ];
             Rule::create($ruleData);
             return redirect('/rules')->with('message', 'Rule created successfully');
-        } catch (Exception $e) {
-            dd($e);
-            return back()->withErrors($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
+
     }
-    public function update(Request $request)
+    public function destroy(String $id)
     {
         try {
+            Rule::find($id)->delete();
+            return back()->with('message', 'Rule deleted successfully!');
+        } catch (Exception $errors) {
 
-            $request->validate([
-                'rule' => 'required',
-            ]);
-            $ruleData = [
-                'rule' => $request->rule,
-            ];
-            Rule::update($ruleData);
-            return redirect('/rules')->with('message', 'Rule edited successfully');
-        } catch (Exception $e) {
-            dd($e);
-            return back()->withErrors($e);
+            return back()->withErrors($errors->getMessage());
         }
     }
 }

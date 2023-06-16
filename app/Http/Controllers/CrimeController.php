@@ -40,9 +40,9 @@ class CrimeController extends Controller
         try {
             $crimeService->store($request);
             return back()->with('message', 'Crime Reported Successfully');
-        } catch (Exception $e) {
-            dd($e);
-            return back()->withErrors($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
 
     }
@@ -77,9 +77,9 @@ class CrimeController extends Controller
                 Crime::find($id)->update($dc_decision);
                 return back()->with('message', 'Decision Made Successfully!');
             }
-        } catch (Exception $e) {
-            dd($e);
-            return back()->withErrors($e);
+        } catch (Exception $errors) {
+
+            return back()->withErrors($errors->getMessage());
         }
     }
 

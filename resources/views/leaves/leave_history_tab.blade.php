@@ -12,10 +12,6 @@
             <table class="items-center w-full bg-transparent border-collapse ">
                 <thead>
                     <tr>
-                        {{-- <th
-                            class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
-                            Reason
-                        </th> --}}
                         <th
                             class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                             Leave Type

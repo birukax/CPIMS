@@ -11,7 +11,7 @@
     @foreach ($emergencies as $emergency)
 
     <div class="flex-col justify-center mt-4 text-black">
-        <h2 class=" text-base font-semibold text-dark uppercase">{{ $emergency->emergency_name }}</h2>
+        <h2 class="text-base font-semibold uppercase  text-dark">{{ $emergency->emergency_name }}</h2>
         <h4 class="ml-4 text-sm font-semibold">- {{ $emergency->emergency_contact_name }}</h4>
         <h4 class="ml-4 text-sm font-semibold">- {{ $emergency->emergency_contact_phone }}</h4>
         @if ($emergency->emergency_alternative_name !== NULL)
