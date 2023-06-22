@@ -102,6 +102,7 @@ Route::group(['middleware' => ['auth',  'Available']], function () {
             Route::get('/', [EmergencyController::class, 'index'])->name('emergencies');
             Route::post('/emergency_added', [EmergencyController::class, 'store'])->name('emergency_added');
             Route::put('/emergency_edited', [EmergencyController::class, 'update'])->name('emergency_edited');
+            Route::delete('/emergency_deleted/{id}', [EmergencyController::class, 'destroy'])->name('emergency_deleted/{id}');
         });
     });
     Route::group(['middleware' => 'CheckRole:admin'], function () {

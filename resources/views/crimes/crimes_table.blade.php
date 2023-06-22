@@ -1,21 +1,21 @@
 <!-- component -->
-<section class="bg-white mx-auto p-6 font-mono ">
+<section class="p-6 mx-auto bg-white ">
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
         <div class="w-full overflow-x-auto">
             <table class="w-full">
                 <thead>
                     <tr
-                        class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                        <th class="px-4 py-3">Name + Crime</th>
-                        <th class="px-4 py-3">Reported By</th>
-                        <th class="px-4 py-3">Status</th>
-                        <th class="px-4 py-3">Action</th>
+                        class="font-semibold tracking-wide text-left text-white text-gray-900 uppercase bg-gray-100 border-b border-gray-600 bg-dark text-md">
+                        <th class="px-1 py-2">Name + Crime</th>
+                        <th class="px-1 py-2">Reported By</th>
+                        <th class="px-1 py-2">Status</th>
+                        <th class="px-1 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
                     @foreach ($crimes as $crime)
                         <tr class="text-gray-700">
-                            <td class="px-4 py-3 border">
+                            <td class="px-2 py-1 border">
                                 <div class="flex items-center text-sm">
 
                                     <div>
@@ -24,19 +24,19 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-4 py-3 text-ms font-semibold border">{{ $crime->user->name }}</td>
-                            <td class="px-4 py-3 text-xs border">
+                            <td class="px-2 py-1 border text-ms">{{ $crime->user->name }}</td>
+                            <td class="px-2 py-1 text-xs border">
                                 <span
                                     class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">
                                     {{ $crime->status->name }}
                                 </span>
                             </td>
-                            <td class="px-4 py-3 text-sm border">
+                            <td class="px-2 py-1 text-sm border">
                                 @if (auth()->user()->role_id === 2)
                                     @include('crimes.crime_detail_modal')
                                 @else
                                     <a href="/crimes/crime_detail/{{ $crime->id }}"
-                                        class="inline-flex items-center justify-center gap-2 rounded-full bg-dark py-1 px-3 text-center font-medium text-white hover:bg-opacity-90 lg:px-4 xl:px-6">
+                                        class="inline-flex items-center justify-center gap-1 px-3 py-1 text-sm text-center text-white rounded-full bg-dark hover:bg-opacity-90 lg:px-1 xl:1x-6">
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-4 h-4">

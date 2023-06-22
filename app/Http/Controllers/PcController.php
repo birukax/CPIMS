@@ -17,7 +17,7 @@ class PcController extends Controller
         return view(
             'pcs.pcs',
             [
-                'pcs' => Pc::all(),
+                'pcs' => Pc::paginate(10),
                 'count' => 0
             ]
         );
@@ -40,7 +40,7 @@ class PcController extends Controller
 
             $request->validate([
                 'brand' => ['required'],
-                'serial_number' => ['required'],
+                'serial_number' => ['required', 'unique:pcs,serial_number'],
                 'owner_name' => ['required'],
                 'owner_id' => ['required'],
             ]);

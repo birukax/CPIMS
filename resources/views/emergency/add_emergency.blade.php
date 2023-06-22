@@ -47,7 +47,7 @@
                     </div>
                     <div>
                         <x-label for="emergency_contact_phone" value="{{ __('Emergency Contact phone') }}" />
-                        <x-input id="emergency_contact_phone" class="block w-full mt-1" type="phone"
+                        <x-input id="emergency_contact_phone" class="block w-full mt-1" type="tel"
                             name="emergency_contact_phone" :value="old('emergency_contact_phone')" required autofocus
                             autocomplete="emergency_contact_phone" />
                     </div>
@@ -59,7 +59,7 @@
                     </div>
                     <div>
                         <x-label for="emergency_alternative_phone" value="{{ __('Alternative Contact phone') }}" />
-                        <x-input id="emergency_alternative_phone" class="block w-full mt-1" type="phone"
+                        <x-input id="emergency_alternative_phone" class="block w-full mt-1" type="tel"
                             name="emergency_alternative_phone" :value="old('emergency_alternative_phone')"
                             autocomplete="emergency_alternative_phone" />
                     </div>

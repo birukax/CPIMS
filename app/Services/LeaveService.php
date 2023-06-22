@@ -32,10 +32,10 @@ class LeaveService
             $leave_days = $request->leave_days;
             $end_date = $startDate->addDays($leave_days);
         }
-        if ($request->evidence) {
-            $evidence_name = time() . $request->file('evidence')->getClientOriginalName();
-            $evidence_path = $request->file('evidence')->storeAs('evidences', $evidence_name, 'public');
-        }
+        // if ($request->evidence) {
+        //     $evidence_name = time() . $request->file('evidence')->getClientOriginalName();
+        //     $evidence_path = $request->file('evidence')->storeAs('evidences', $evidence_name, 'public');
+        // }
 
 
         if (auth()->user()->role_id === 3) {
@@ -50,8 +50,8 @@ class LeaveService
             'leave_days' => $leave_days,
             'lt_id' => $request->lt_id,
             'status_id' => $status_id,
-            'evidence' => $evidence_name,
-            'evidence_path' => '/storage/' . $evidence_path,
+            // 'evidence' => $evidence_name,
+            // 'evidence_path' => '/storage/' . $evidence_path,
             'start_date' => $start_date,
             'end_date' => $end_date,
         ];

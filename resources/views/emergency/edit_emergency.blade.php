@@ -1,12 +1,12 @@
-<div class="items-center mx-auto  button">
+<div class="items-center mx-auto ">
     <button type="button"
-    class="inline-flex items-center justify-center gap-2 px-2 py-1 text-center text-white rounded-full bg-dark font-sm hover:bg-opacity-90 lg:px-3 xl:px-4"
+    class="inline-flex items-center justify-center gap-1 px-2 py-0.5 text-center text-white rounded-full bg-dark font-extralight xl:font-sm hover:bg-opacity-90 lg:px-2 xl:px-3"
      data-te-toggle="modal" data-te-target="#editEmergencyModal{{ $emergency->id }}" data-te-ripple-init
         data-te-ripple-color="light">
         <span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-4 h-4 ">
+            class="w-3 h-3 ">
             <path stroke-linecap="round" stroke-linejoin="round"
                 d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
         </svg>

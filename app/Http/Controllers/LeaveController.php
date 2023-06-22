@@ -47,10 +47,14 @@ class LeaveController extends Controller
     {
         try {
             $pending = auth()->user()->leaves->where('status_id', '<=', 2);
+            $accepted = auth()->user()->leaves->where('status_id', '<=', 3)->where('end_date', '>=', Carbon::today()->toDateString());
             if (count($pending) === 0) {
-
-                $leaveService->store($request);
-                return back()->with('message', 'Leave Requested Successfully');
+                if (count($accepted) === 0) {
+                    $leaveService->store($request);
+                    return back()->with('message', 'Leave Requested Successfully');
+                } else {
+                    return back()->with('erroe', 'You are on a leave!');
+                }
             } else {
                 return back()->with('message', 'You have a pending leave request');
             }

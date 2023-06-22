@@ -29,7 +29,7 @@
                             <tbody>
                                 @foreach ($pcs as $pc)
                                     <tr class="font-medium text-black border-b">
-                                        <td class="px-1 py-2 font-medium whitespace-nowrap">{{ $count = +1 }}</td>
+                                        <td class="px-1 py-2 font-medium whitespace-nowrap">{{ $count += 1 }}</td>
                                         <td class="px-1 py-2 whitespace-nowrap">{{ $pc->brand }}</td>
                                         <td class="px-1 py-2 whitespace-nowrap">{{ $pc->serial_number }}</td>
                                         <td class="px-1 py-2 whitespace-nowrap">{{ $pc->owner_name }}</td>
@@ -43,6 +43,8 @@
 
                             </tbody>
                         </table>
+                {{ $pcs->links() }}
+
                     </div>
                 </div>
             </div>
